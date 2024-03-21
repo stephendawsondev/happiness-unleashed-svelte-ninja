@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+import cloudinary.uploader
+import cloudinary
 from django.shortcuts import get_object_or_404
 
 from .models import UserProfile
@@ -20,7 +22,14 @@ def profile(request):
         user_form = CustomUserEditForm(request.POST, instance=request.user)
         form = UserProfileForm(request.POST, instance=profile)
         # TODO: Add completed Acts of kindness to the profile page
+
         if user_form.is_valid() and form.is_valid():
+            if request.FILES:
+                if 'profile_image' in request.FILES:
+                    image = request.FILES['profile_image']
+                    upload = cloudinary.uploader.upload(image)
+                    form.instance.profile_image = upload['url']
+
             user_form.save()
             form.save()
             messages.success(request, 'Profile updated successfully')

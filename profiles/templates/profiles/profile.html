@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 
@@ -23,10 +24,31 @@
       <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1694389081/default_profile_ekdors.jpg"
         alt="Profile image placeholder" class="profile-image mb-3">
       {% endif %}
-      <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+      <form action="{% url 'profile' %}" method="POST" id="profile-update-form" enctype="multipart/form-data">
         {% csrf_token %}
-        <h3 class="h3 my-4">Personal Details</h3>
+        <div class="mb-3">
+          <label class="form-label text-secondary" for="{{ form.profile_image.id_for_label }}">Update profile
+            image:</label>
+          <input type="file" class="form-control mt-3" name="{{ form.profile_image.html_name }}"
+            id="{{ form.profile_image.auto_id }}">
 
+          {% if form.profile_image.errors %}
+          <div class="text-danger mt-2">
+            {{ form.profile_image.errors }}
+          </div>
+          {% endif %}
+
+          {% if form.profile_image.value %}
+          <div class="d-flex my-3">
+            <input type="checkbox" class="form-check-input me-2" name="{{ form.profile_image.html_name }}-clear"
+              id="id_{{ form.profile_image.html_name }}-clear" style="height: 1.25rem; width: 1.25rem;">
+            <label class="form-check-label text-secondary fs-6 fw-medium"
+              for="id_{{ form.profile_image.html_name }}-clear">Clear image</label>
+          </div>
+          {% endif %}
+
+        </div>
+        <h3 class="h3 my-4">Personal Details</h3>
         <!-- Manually render each field in the user form -->
         <div class="form-row">
           <div class="form-group col-md-6 mb-0">

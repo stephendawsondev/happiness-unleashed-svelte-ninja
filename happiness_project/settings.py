@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'happiness_app',
     'profiles',
 
