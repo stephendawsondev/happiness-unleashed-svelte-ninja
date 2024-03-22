@@ -22,4 +22,5 @@ urlpatterns = [
     path('', index_views.index, name="index"),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
+    path('acts_of_kindness/', include('acts_of_kindness.urls')),
 ]

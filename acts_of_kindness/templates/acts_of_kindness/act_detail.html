@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet"
+    href="{% static 'acts_of_kindness/css/acts_of_kindness.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<h2>{{ act.name }}</h2>
+<p>{{ act.description }}</p>
+
+{% if act.image %}
+<img src="{{ act.image.url }}" alt="{{ act.name }}">
+{% endif %}
+
+{% if request.user.is_superuser %}
+<a href="{% url 'add_act' act.id %}">Add another Act of Kindness</a>
+<a href="{% url 'edit_act' act.id %}">Edit the Act of Kindness</a>
+<a class="text-danger" href="{% url 'delete_act' act.id %}">Delete the Act of Kindness</a>
+{% endif %}
+
+{% endblock %}
+

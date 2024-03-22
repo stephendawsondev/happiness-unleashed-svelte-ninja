@@ -1,0 +1,47 @@
+[
+    {
+        "pk": 1,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Park Cleanup",
+            "description": "Organize a local park cleanup.",
+            "image": "park_cleanup.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Food Drive",
+            "description": "Start a food drive for a local shelter.",
+            "image": "food_drive.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Compliment Day",
+            "description": "Give genuine compliments to five people.",
+            "image": "compliment_day.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Book Sharing",
+            "description": "Set up a community book exchange.",
+            "image": "book_sharing.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Help an Elder",
+            "description": "Assist an elderly neighbor with groceries.",
+            "image": "help_an_elder.jpg"
+        }
+    }
+]
