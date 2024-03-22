@@ -7,11 +7,12 @@ import random
 
 
 def index(request):
-  """A view to return the homepage."""
+    """A view to return the homepage."""
+
     acts = ActsOfKindness.objects.all().filter(
         approved=True)[:5]
     random_acts = random.sample(list(acts), 4) if len(acts) > 4 else acts
-    
+
     context = {
         'acts': acts,
         'random_acts': random_acts
