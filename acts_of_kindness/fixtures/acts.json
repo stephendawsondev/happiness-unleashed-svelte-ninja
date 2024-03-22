@@ -43,5 +43,95 @@
             "description": "Assist an elderly neighbor with groceries.",
             "image": "help_an_elder.jpg"
         }
+    },
+    {
+        "pk": 6,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Park Cleanup",
+            "description": "Organize a cleanup day at a local park.",
+            "image": "park_cleanup.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Book Donation",
+            "description": "Donate books to a local library or school.",
+            "image": "book_donation.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Volunteer Tutoring",
+            "description": "Offer free tutoring sessions for students in need.",
+            "image": "volunteer_tutoring.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Senior Social",
+            "description": "Host a social event for seniors in your community.",
+            "image": "senior_social.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Pet Fostering",
+            "description": "Foster a pet until it finds a forever home.",
+            "image": "pet_fostering.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Clothing Swap",
+            "description": "Organize a clothing swap to promote sustainable fashion.",
+            "image": "clothing_swap.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Bike Repair Workshop",
+            "description": "Offer a free bike repair workshop in your community.",
+            "image": "bike_repair_workshop.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Neighborhood Watch",
+            "description": "Start or participate in a neighborhood watch program.",
+            "image": "neighborhood_watch.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Free Hugs Campaign",
+            "description": "Start a free hugs campaign to spread positivity.",
+            "image": "free_hugs_campaign.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "acts_of_kindness.ActsOfKindness",
+        "fields": {
+            "name": "Tree Planting",
+            "description": "Organize a tree planting day to help the environment.",
+            "image": "tree_planting.jpg"
+        }
     }
 ]

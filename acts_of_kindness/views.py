@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import ActsOfKindness
+from .models import ActsOfKindness, UserProfile, UserActStatus
 from .forms import ActsOfKindnessForm
 
 #@login_required
@@ -68,7 +68,21 @@ def delete_act(request, pk):
     messages.success(request, 'Successfully deleted act of kindness!')
     return redirect(reverse('index'))
 
+#@login_required
+def completed_act(request, act_id):
+    #if not request.user.is_authenticated:
+     #   messages.error(request, 'Sorry, only logged in users can do that.')
+      #  return redirect(reverse('index'))
+     if request.method == "POST":
+        user_profile = request.user.userprofile
+        act_of_kindness = get_object_or_404(ActsOfKindness, pk=act_id)
 
-
+        UserActStatus.objects.update_or_create(
+            user_profile=user_profile,
+            act_of_kindness=act_of_kindness,
+            defaults={'completed': True}
+        )
+        messages.success(request, 'Great job doing an act of kindness!')
+        return redirect('profiles:profile')
 
 

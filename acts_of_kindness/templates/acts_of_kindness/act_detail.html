@@ -18,6 +18,13 @@
 <img src="{{ act.image.url }}" alt="{{ act.name }}">
 {% endif %}
 
+<div>
+    <form action="{% url 'completed_act' act.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Mark as Completed</button>
+    </form>
+</div>
+
 {% if request.user.is_superuser %}
 <a href="{% url 'add_act' act.id %}">Add another Act of Kindness</a>
 <a href="{% url 'edit_act' act.id %}">Edit the Act of Kindness</a>

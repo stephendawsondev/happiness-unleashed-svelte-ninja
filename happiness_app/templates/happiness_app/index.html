@@ -1,4 +1,35 @@
-{% extends "base.html" %} {% block content %}
-<h1>Happiness Unleashed!</h1>
+{% extends "base.html" %}
+{% load static %}
 
+{% block extra_css %}
+{{ block.super }}
+<!--
+<link rel="stylesheet"
+    href="{% static 'some file.css' %}">-->
 {% endblock %}
+
+{% block content %}
+<h1>Happiness Unleashed!</h1>
+<div class="container py-5">
+    <div class="row">
+        {% for act in random_acts %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                {% if act.image %}
+                <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ act.name }}</h5>
+                    <p class="card-text">{{ act.description }}</p>
+                    <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block extras %}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+{% endblock extras %}
