@@ -34,7 +34,7 @@ DEBUG = True
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', '8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'happiness-unleashed-b388dd1f8f63.herokuapp.com', '8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io']
 
 # Application definition
 

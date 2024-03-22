@@ -7,6 +7,14 @@ import random
 
 
 def index(request):
-    acts = ActsOfKindness.objects.all()
+  """A view to return the homepage."""
+    acts = ActsOfKindness.objects.all().filter(
+        approved=True)[:5]
     random_acts = random.sample(list(acts), 4) if len(acts) > 4 else acts
-    return render(request, 'happiness_app/index.html', {'random_acts': random_acts})
+    
+    context = {
+        'acts': acts,
+        'random_acts': random_acts
+    }
+
+    return render(request, 'happiness_app/index.html', context)

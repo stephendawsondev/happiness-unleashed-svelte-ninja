@@ -1,16 +1,39 @@
-{% extends "base.html" %}
-{% load static %}
 
-{% block extra_css %}
-{{ block.super }}
-<!--
-<link rel="stylesheet"
-    href="{% static 'some file.css' %}">-->
-{% endblock %}
-
-{% block content %}
-<h1>Happiness Unleashed!</h1>
-<div class="container py-5">
+{% extends "base.html" %} {% block content %}
+<section class="py-5" id="acts-of-kindness-slider">
+  <div class="container px-5">
+    <div id="carouselIndicators" class="carousel slide carousel-fade">
+      <div class="carousel-indicators">
+        {% for act in acts %}
+        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}"
+          {% if forloop.first %}class="active" aria-current="true" {% endif %}
+          aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for act in acts %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Slide {{ forloop.counter }} label</h5>
+            <p>Some representative placeholder content for slide {{ forloop.counter }}.</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+<section class="pb-5" id="acts-of-kindness-cards">
+  <div class="container py-5">
     <div class="row">
         {% for act in random_acts %}
         <div class="col-md-3">
@@ -27,9 +50,6 @@
         </div>
         {% endfor %}
     </div>
-</div>
-{% endblock content %}
-
-{% block extras %}
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
-{% endblock extras %}
+  </div>
+</section>
+{% endblock %}
