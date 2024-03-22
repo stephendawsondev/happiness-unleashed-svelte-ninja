@@ -17,11 +17,11 @@ def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     user_form = CustomUserEditForm(instance=request.user)
     form = UserProfileForm(instance=profile)
+    completed_acts = profile.acts_of_kindness.filter(useractstatus__completed=True)
 
     if request.method == 'POST':
         user_form = CustomUserEditForm(request.POST, instance=request.user)
         form = UserProfileForm(request.POST, instance=profile)
-        # TODO: Add completed Acts of kindness to the profile page
 
         if user_form.is_valid() and form.is_valid():
             if request.FILES:
@@ -42,7 +42,8 @@ def profile(request):
     context = {
         'user_form': user_form,
         'form': form,
-        'profile': profile
+        'profile': profile,
+        'completed_acts': completed_acts 
     }
 
     return render(request, template, context)

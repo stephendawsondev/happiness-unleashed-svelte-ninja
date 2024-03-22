@@ -1,3 +1,4 @@
+
 {% extends "base.html" %} {% block content %}
 <section class="py-5" id="acts-of-kindness-slider">
   <div class="container px-5">
@@ -28,6 +29,26 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
+    </div>
+  </div>
+</section>
+<section class="pb-5" id="acts-of-kindness-cards">
+  <div class="container py-5">
+    <div class="row">
+        {% for act in random_acts %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                {% if act.image %}
+                <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ act.name }}</h5>
+                    <p class="card-text">{{ act.description }}</p>
+                    <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
   </div>
 </section>

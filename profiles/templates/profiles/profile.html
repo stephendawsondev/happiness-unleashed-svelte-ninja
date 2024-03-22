@@ -19,17 +19,36 @@
     <div class="col-12 col-lg-6 mb-5 pl-lg-0">
       <h2 class="h2 mb-3">My Profile</h2>
       {% if profile.profile_image %}
-      <img src="{{ profile.profile_image.url }}" alt="Profile image" class="profile-image mb-3">
+      <img src="{{ profile.profile_image.url }}" alt="Profile image"
+        class="profile-image mb-3">
       {% else %}
-      <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1694389081/default_profile_ekdors.jpg"
+      <img
+        src="https://res.cloudinary.com/dyoueyepq/image/upload/v1694389081/default_profile_ekdors.jpg"
         alt="Profile image placeholder" class="profile-image mb-3">
       {% endif %}
-      <form action="{% url 'profile' %}" method="POST" id="profile-update-form" enctype="multipart/form-data">
+      <h2>My Completed Acts of Kindness</h2>
+      <ul>
+        {% for act in completed_acts %}
+        <li>{{ act.name }} - {{ act.description }}
+          <form action="{% url 'completed_act' act.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Mark as Completed</button>
+        </form>
+      </li>
+        {% empty %}
+        <li>No completed acts of kindness yet.</li>
+        {% endfor %}
+      </ul>
+
+      <form action="{% url 'profile' %}" method="POST" id="profile-update-form"
+        enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
-          <label class="form-label text-secondary" for="{{ form.profile_image.id_for_label }}">Update profile
+          <label class="form-label text-secondary"
+            for="{{ form.profile_image.id_for_label }}">Update profile
             image:</label>
-          <input type="file" class="form-control mt-3" name="{{ form.profile_image.html_name }}"
+          <input type="file" class="form-control mt-3"
+            name="{{ form.profile_image.html_name }}"
             id="{{ form.profile_image.auto_id }}">
 
           {% if form.profile_image.errors %}
@@ -40,10 +59,13 @@
 
           {% if form.profile_image.value %}
           <div class="d-flex my-3">
-            <input type="checkbox" class="form-check-input me-2" name="{{ form.profile_image.html_name }}-clear"
-              id="id_{{ form.profile_image.html_name }}-clear" style="height: 1.25rem; width: 1.25rem;">
+            <input type="checkbox" class="form-check-input me-2"
+              name="{{ form.profile_image.html_name }}-clear"
+              id="id_{{ form.profile_image.html_name }}-clear"
+              style="height: 1.25rem; width: 1.25rem;">
             <label class="form-check-label text-secondary fs-6 fw-medium"
-              for="id_{{ form.profile_image.html_name }}-clear">Clear image</label>
+              for="id_{{ form.profile_image.html_name }}-clear">Clear
+              image</label>
           </div>
           {% endif %}
 
@@ -89,7 +111,8 @@
         </div>
         {% if request.user == user %}
         <div class="float-right">
-          <button type="submit" class="btn btn-primary ml-1">Update details</button>
+          <button type="submit" class="btn btn-primary ml-1">Update
+            details</button>
         </div>
         {% endif %}
       </form>
@@ -104,16 +127,21 @@
 {% comment %} Delete confirmation modal {% endcomment %}
 <dialog id="delete-modal" class="bg-dark text-light">
   <div class="modal-box p-3">
-    <h3 id="delete-modal-message" class="font-bold mb-3">Are you sure you want to proceed? This action cannot be undone.
+    <h3 id="delete-modal-message" class="font-bold mb-3">Are you sure you want
+      to proceed? This action cannot be undone.
     </h3>
     <div class="row pt-4 justify-content-lg-end">
       <div class="col-12 col-lg-3">
-        <button type="button" class="btn btn-outline-light delete-cancel-button w-100">No, cancel.</button>
+        <button type="button"
+          class="btn btn-outline-light delete-cancel-button w-100">No,
+          cancel.</button>
       </div>
       <div class="col-12 col-lg-3">
         <form id="delete-modal-form" action="#" method="post">
           {% csrf_token %}
-          <button type="submit" class="btn btn-danger delete-confirm-button w-100 mt-2 mt-lg-0">Yes, proceed.</button>
+          <button type="submit"
+            class="btn btn-danger delete-confirm-button w-100 mt-2 mt-lg-0">Yes,
+            proceed.</button>
         </form>
       </div>
     </div>
