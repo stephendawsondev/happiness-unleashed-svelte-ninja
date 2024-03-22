@@ -26,11 +26,11 @@
 
 {% comment %} Body {% endcomment %}
 
-<body>
+<body class="d-flex flex-column h-100">
   {% comment %} Toast messages {% endcomment %}
   {% if messages %}
   {% for message in messages %}
-  <div role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="position-absolute" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="alert {{ message.tags }}">
       {{ message }}
     </div>
@@ -41,25 +41,17 @@
   {% comment %} Header {% endcomment %}
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <div class="container px-5">
+        <a class="navbar-brand" href="/">Happiness Unleashed</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Account
-              </a>
+              <a class="nav-link dropdown-toggle" id="navbarDropdownAccount" href="#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">Account</a>
               <ul class="dropdown-menu">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
@@ -74,22 +66,15 @@
                 {% endif %}
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
+            <button class="theme-toggle display-6 ms-3 border-0 bg-transparent">🌞</button>
           </ul>
-          <button class="theme-toggle display-6 me-3 border-0 bg-transparent">🌞</button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
   </header>
 
   {% comment %} Main content {% endcomment %}
-  <main class="h-100">
+  <main class="flex-shrink-0">
     {% block content %}
 
     {% endblock content %}
