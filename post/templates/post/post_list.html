@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'post/css/post.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5" id="post-list-section">
+  <div class="container">
+    <h1>User-submitted posts</h1>
+    {% if posts %}
+    <ul>
+      {% for post in posts %}
+      <li>
+        <h2><a href="{% url 'post_detail' post.id %}">{{ post.aok.name }}</a></h2>
+        <p>{{ post.content|truncatewords:20 }}</p>
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.name }}" style="max-width: 100px; max-height: 100px;">
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No posts yet!</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+
+{% endblock extra_js %}

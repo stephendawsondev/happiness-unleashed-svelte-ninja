@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'post/css/post.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5" id="post-detail-section">
+  <div class="container">
+    <p>Act of kindness details:</p>
+    <p>{{ aok.name }}</p>
+    <p>{{ aok.description }}</p>
+    {% if aok.image %}
+    <img src="{{ aok.image.url }}" alt="{{ aok.name }}">
+    {% endif %}
+    <hr>
+    <p>{{ post.content }}</p>
+
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="Post about {{ aok.name }}">
+    {% endif %}
+
+    {% if request.user == post.user_profile.user %}
+    <a href="{% url 'edit_post' post.id %}">Edit post</a>
+    <a class="text-danger" href="{% url 'delete_post' post.id %}">Delete post</a>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}
