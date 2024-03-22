@@ -10,7 +10,10 @@
 
 
 {% block content %}
-<!--{% if request.user.is_superuser %}-->
+{% comment %}
+{% if request.user.is_superuser %}
+{% endif %}
+{% endcomment %}
 <h1>Acts of Kindness</h1>
 {% if acts %}
     <ul>
@@ -26,9 +29,11 @@
     </ul>
 {% else %}
     <p>No acts of kindness found.</p>
+
 {% endif %}
 
+
 <a href="{% url 'add_act' %}">Add Act of Kindness</a>
-<!--{% endif %}-->
+
 
 {% endblock %}
