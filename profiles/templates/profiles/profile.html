@@ -28,16 +28,17 @@
       {% endif %}
       <h2>My Completed Acts of Kindness</h2>
       <ul>
-        {% for act in completed_acts %}
-        <li>{{ act.name }} - {{ act.description }}
-          <form action="{% url 'completed_act' act.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Mark as Completed</button>
-        </form>
-      </li>
+        {% for user_act_status in completed_acts %}
+        <li>{{ user_act_status.act_of_kindness.name }} - {{
+          user_act_status.act_of_kindness.description }}
+          <p>Thank you for completing an act of kindness! Would you like to
+            share a post about it, to inspire others to also do the act of kindness?</p>
+            <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-primary">Share Your Act</a>
+        </li>
         {% empty %}
-        <li>No completed acts of kindness yet.</li>
+        <li>You have not completed any acts of kindness yet.</li>
         {% endfor %}
+
       </ul>
 
       <form action="{% url 'profile' %}" method="POST" id="profile-update-form"
