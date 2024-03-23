@@ -103,5 +103,3 @@ def complete_and_share_act(request, act_id):
         messages.success(request, 'Act of kindness marked as completed.')
         return redirect('profile')
 
-    # Assuming the GET request renders a page with the option to share
-    return render(request, 'acts_of_kindness/complete_and_share_act.html', {'act': act_of_kindness})
