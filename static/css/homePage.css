@@ -11,6 +11,17 @@
   border-radius: 15px;
 }
 
+.user-image {
+  max-height: 45px;
+}
+
+.user-name {
+  color: black;
+  text-decoration: none;
+  font-size: medium;
+  font-weight: 600;
+}
+
 
 @media (max-width: 767px) {
   .navContainer {
