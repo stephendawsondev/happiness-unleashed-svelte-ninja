@@ -5,30 +5,40 @@
 {% trans "Sign In" %}
 {% endblock head_title %}
 {% block content %}
-{% element h1 %}
-{% trans "Sign In" %}
-{% endelement %}
-<p>
-    {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
-</p>
-{% url 'account_login' as login_url %}
-{% element form form=form method="post" action=login_url tags="entrance,login" %}
-{% slot body %}
-{% csrf_token %}
-{% element fields form=form unlabeled=True %}
-{% endelement %}
-{% if redirect_field_value %}
-<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-{% endif %}
-{% endslot %}
-{% slot actions %}
-{% element button type="submit" tags="prominent,login" %}
-{% trans "Sign In" %}
-{% endelement %}
-{% endslot %}
-{% endelement %}
-{% if SOCIALACCOUNT_ENABLED %}
-{% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-{% endif %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center logo-font mb-4 text-pink mt-5">{% trans "Sign In" %}</h2>
+            <hr>
+
+            {% url 'account_login' as login_url %}
+            <form method="post" action="{{ login_url }}" class="signup-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" class="--bs-pink1">{% trans "Username" %}</label>
+                    <input type="text" name="username" id="username" class="form-control mb-3" placeholder="{% trans 'Username' %}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="text-pink">{% trans "Password" %}</label>
+                    <input type="password" name="password" id="password" class="form-control mb-3" placeholder="{% trans 'Password' %}" required>
+                </div>
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                {% endif %}
+                <div class="form-actions text-center">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 80%">{% trans "Sign In" %}</button>
+                </div>
+            </form>
+            <div class="social-signup mt-4">
+                {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+            </div>
+
+            <div class="mb-3">
+                <p class="text-center">
+                    {% blocktrans %}Don't have an account? <a href="{{ signup_url }}">Sign up</a> first.{% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
