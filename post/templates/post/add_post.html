@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'post/css/post.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<section class="py-5" id="new-post-section">
+  <div class="container">
+    <h2>New post</h2>
+
+    <form method="POST" action="{% url 'add_post' aok.id %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for field in form %}
+      {% if field.name != 'image' %}
+      {{ field | as_crispy_field }}
+      {% else %}
+      <div class="mb-3">
+        <label class="form-label text-secondary" for="{{ form.image.id_for_label }}">Add post image:</label>
+        <input type="file" class="form-control mt-3" name="{{ form.image.html_name }}" id="{{ form.image.auto_id }}">
+
+        {% if form.image.errors %}
+        <div class="text-danger mt-2">
+          {{ form.image.errors }}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% endfor %}
+      <div class="text-right">
+        <a class="btn" href="{% url 'index' %}">Cancel</a>
+        <button class="btn btn-primary" type="submit">Add your post</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
