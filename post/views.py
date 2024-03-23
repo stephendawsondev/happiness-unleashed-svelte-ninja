@@ -6,7 +6,7 @@ import cloudinary
 
 from profiles.models import UserProfile
 from acts_of_kindness.models import ActsOfKindness, UserActStatus
-from .models import Post
+from .models import Post, Like
 from .forms import PostForm
 
 
@@ -119,3 +119,19 @@ def delete_post(request, pk):
     post.delete()
     messages.success(request, 'Post deleted successfully')
     return redirect('profile')
+
+
+@login_required
+def like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if post.user_profile == request.user.userprofile:
+        messages.error(request, "You cannot like your own post.")
+    else:
+        like, created = Like.objects.get_or_create(post=post, user_profile=request.user.userprofile)
+        if created:
+            messages.success(request, "You have liked this post.")
+        else:
+            messages.error(request, "You have already liked this post.")
+
+    return redirect('post_list')
