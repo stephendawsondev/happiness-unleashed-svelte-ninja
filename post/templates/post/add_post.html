@@ -14,31 +14,50 @@
 {% block content %}
 <section class="py-5" id="new-post-section">
   <div class="container">
-    <h2>New post</h2>
+    <h2>Create a post</h2>
+    <div class="d-flex flex-column flex-md-row">
+      <form method="POST" class="mt-3 md-md-0 me-md-5" action="{% url 'add_post' aok.id %}"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        {% if field.name != 'image' %}
+        {{ field | as_crispy_field }}
+        {% else %}
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.image.id_for_label }}">Add post image</label>
+          <input type="file" class="form-control mt-1" name="{{ form.image.html_name }}" id="{{ form.image.auto_id }}">
 
-    <form method="POST" action="{% url 'add_post' aok.id %}" enctype="multipart/form-data">
-      {% csrf_token %}
-      {% for field in form %}
-      {% if field.name != 'image' %}
-      {{ field | as_crispy_field }}
-      {% else %}
-      <div class="mb-3">
-        <label class="form-label text-secondary" for="{{ form.image.id_for_label }}">Add post image:</label>
-        <input type="file" class="form-control mt-3" name="{{ form.image.html_name }}" id="{{ form.image.auto_id }}">
-
-        {% if form.image.errors %}
-        <div class="text-danger mt-2">
-          {{ form.image.errors }}
+          {% if form.image.errors %}
+          <div class="text-danger mt-2">
+            {{ form.image.errors }}
+          </div>
+          {% endif %}
         </div>
         {% endif %}
+        {% endfor %}
+        <div class="text-right">
+          <a class="btn" href="{% url 'index' %}">Cancel</a>
+          <button class="btn btn-primary" type="submit">Add your post</button>
+        </div>
+      </form>
+      {% comment %} Act of kindness card {% endcomment %}
+      <div class="act-of-kindness-card">
+        <p>You have completed this act of kindness:</p>
+        <div class="card">
+          {% if aok.image %}
+          <div class="card-header p-0">
+            <img src="{{ aok.image.url }}" class="card-img-top img-fluid" alt="{{ aok.name }}">
+          </div>
+          {% endif %}
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title">Act of Kindness</h5>
+            <p class="card-text">{{ aok.name }}</p>
+            <p class="card-text">{{ aok.description }}</p>
+          </div>
+        </div>
       </div>
-      {% endif %}
-      {% endfor %}
-      <div class="text-right">
-        <a class="btn" href="{% url 'index' %}">Cancel</a>
-        <button class="btn btn-primary" type="submit">Add your post</button>
-      </div>
-    </form>
+    </div>
+
   </div>
 </section>
 {% endblock %}
