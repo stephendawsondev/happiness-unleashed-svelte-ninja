@@ -19,3 +19,9 @@ def index(request):
     }
 
     return render(request, 'happiness_app/index.html', context)
+
+
+def our_team(request):
+    """A view to return the our team page."""
+
+    return render(request, 'happiness_app/our_team.html')

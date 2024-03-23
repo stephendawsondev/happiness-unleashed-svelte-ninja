@@ -150,77 +150,78 @@
       "name": "Say Please and Thank You",
       "description": "Practice basic manners by saying please and thank you in all interactions, whether it's with a cashier, coworker, friend, or family member.",
       "image": "say_please.jpg"
-    },
-    {
-      "pk": 18,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Offer Encouragement",
-        "description": "Encourage someone who seems down or demotivated with a kind word or gesture, whether it's a classmate stressed about exams or a coworker feeling overwhelmed at work.",
-        "image": "offer_encouragement.jpg"
-      }
-    },
-    {
-      "pk": 19,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Share Inspiring Content",
-        "description": "Share inspiring articles or videos on social media to uplift others, whether it's a motivational quote, heartwarming story, or informative piece on a topic you're passionate about.",
-        "image": "share_inspiring_content.jpg"
-      }
-    },
-    {
-      "pk": 20,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Give Blood",
-        "description": "Donate blood to help those in need during emergencies by visiting your local Red Cross or blood donation center.",
-        "image": "give_blood.jpg"
-      }
-    },
-    {
-      "pk": 21,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Send Positive Messages",
-        "description": "Send positive messages or texts to friends or family members to brighten their day, whether it's a funny meme, encouraging quote, or heartfelt message.",
-        "image": "send_positive_messages.jpg"
-      }
-    },
-    {
-      "pk": 22,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Support Local Businesses",
-        "description": "Choose to support local businesses whenever possible to help your community thrive, whether it's buying groceries from a neighborhood market or shopping at a boutique owned by locals.",
-        "image": "support_local_businesses.jpg"
-      }
-    },
-    {
-      "pk": 23,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Offer to Babysit",
-        "description": "Offer to babysit for a friend or neighbor who could use a break, whether it's to give them a night out or help them run errands without worrying about childcare.",
-        "image": "offer_to_babysit.jpg"
-      }
-    },
-    {
-      "pk": 24,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Give Complimentary Reviews",
-        "description": "Leave positive reviews for businesses or services you appreciate, whether it's a restaurant, shop, or online service, to help others discover and support them too.",
-        "image": "give_complimentary_reviews.jpg"
-      }
-    },
-    {
-      "pk": 25,
-      "model": "acts_of_kindness.ActsOfKindness",
-      "fields": {
-        "name": "Practice Empathy",
-        "description": "Put yourself in someone else's shoes and try to understand their perspective without judgment, whether it's a friend going through a tough time or a stranger you encounter in your daily life. Offer support and compassion wherever you can.",
-        "image": "practice_empathy.jpg"
-      }
     }
-  ]
+  },
+  {
+    "pk": 18,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Offer Encouragement",
+      "description": "Encourage someone who seems down or demotivated with a kind word or gesture, whether it's a classmate stressed about exams or a coworker feeling overwhelmed at work.",
+      "image": "offer_encouragement.jpg"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Share Inspiring Content",
+      "description": "Share inspiring articles or videos on social media to uplift others, whether it's a motivational quote, heartwarming story, or informative piece on a topic you're passionate about.",
+      "image": "share_inspiring_content.jpg"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Give Blood",
+      "description": "Donate blood to help those in need during emergencies by visiting your local Red Cross or blood donation center.",
+      "image": "give_blood.jpg"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Send Positive Messages",
+      "description": "Send positive messages or texts to friends or family members to brighten their day, whether it's a funny meme, encouraging quote, or heartfelt message.",
+      "image": "send_positive_messages.jpg"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Support Local Businesses",
+      "description": "Choose to support local businesses whenever possible to help your community thrive, whether it's buying groceries from a neighborhood market or shopping at a boutique owned by locals.",
+      "image": "support_local_businesses.jpg"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Offer to Babysit",
+      "description": "Offer to babysit for a friend or neighbor who could use a break, whether it's to give them a night out or help them run errands without worrying about childcare.",
+      "image": "offer_to_babysit.jpg"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Give Complimentary Reviews",
+      "description": "Leave positive reviews for businesses or services you appreciate, whether it's a restaurant, shop, or online service, to help others discover and support them too.",
+      "image": "give_complimentary_reviews.jpg"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Practice Empathy",
+      "description": "Put yourself in someone else's shoes and try to understand their perspective without judgment, whether it's a friend going through a tough time or a stranger you encounter in your daily life. Offer support and compassion wherever you can.",
+      "image": "practice_empathy.jpg"
+    }
+  }
+]
