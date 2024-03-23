@@ -18,4 +18,4 @@ def index(request):
         'random_acts': random_acts
     }
 
-  return render(request, 'happiness_app/index.html', context)
+    return render(request, 'happiness_app/index.html', context)
