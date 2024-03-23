@@ -33,6 +33,7 @@
             share a post about it, to inspire others to also do the act of kindness?</p>
           <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-primary">Share Your Act</a>
         </li>
+
         {% empty %}
         <li>You have not completed any acts of kindness yet.</li>
         {% endfor %}
