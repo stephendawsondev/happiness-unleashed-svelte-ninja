@@ -51,7 +51,7 @@
     <nav class="navbar navbar-expand-md">
       <div class="container-fluid navContainer">
         <a class="navbar-brand" href="/">
-          <img class="logo" src="../static/images/HULogo.png" alt="Happiness Unleashed Logo">
+          <img class="logo" src="../static/images/HULogo.png" aria-label="Happiness Unleashed Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,24 +102,61 @@
   </main>
 
   {% comment %} Footer {% endcomment %}
+  
   <footer class=" text-light py-2">
     <div class="container">
       {% comment %} Social icons and copyright {% endcomment %}
       <div class="mt-2">
 
-        <div class="col-12 text-center w-100">
-          <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.facebook.com/" target="_blank"
-            role="button" aria-label="Facebook link"><i class="fab fa-facebook-f"></i></a>
-          <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.twitter.com" target="_blank"
-            role="button" aria-label="Twitter link"><i class="fa-brands fa-x-twitter"></i></a>
-          <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.youtube.com" target="_blank"
-            role="button" aria-label="Youtube link"><i class="fa-brands fa-youtube"></i></a>
-          <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.instagram.com" target="_blank"
-            role="button" aria-label="Instagram link"><i class="fa-brands fa-square-instagram"></i></a>
-          <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.linkedin.com" target="_blank"
-            role="button" aria-label="Linkedin link"><i class="fab fa-linkedin"></i></a>
+        <div class="dropdown col-12 text-center w-100 lm-4 rm-4">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Developer Team </a>
+        
+          <ul class="dropdown-menu">
+
+            <li class="d-flex justify-content-between "> Stephen
+              <div class="d-flex">
+                <a class="dropdown-item" href="https://github.com/stephendawsondev" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fa-brands fa-github"></i></a>
+                <a class="dropdown-item" href="#" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fab fa-linkedin"></i></a>
+              </div>
+            </li >
+
+            <li class="d-flex justify-content-between"> Claudio
+              <div class="d-flex">
+                <a class="dropdown-item" href="https://github.com/claudio-cruz" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fa-brands fa-github"></i></a>
+                <a class="dropdown-item" href="#" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fab fa-linkedin"></i></a>
+              </div>
+            </li>
+
+            <li class="d-flex justify-content-between"> Florian 
+              <div class="d-flex">
+                <a class="dropdown-item" href="https://github.com/Fl0W97" target="_blank" aria-label="Link to Github Profile"><i class="fs-4  fa-brands fa-github"></i></a>
+                <a class="dropdown-item" href="#" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fab fa-linkedin"></i></a>
+              </div>
+            </li>
+
+            <li class="d-flex justify-content-between"> Ann 
+              <div class="d-flex">
+                <a class="dropdown-item" href="https://github.com/aslinedvinsson" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fa-brands fa-github"></i></a>
+                <a class="dropdown-item" href="#" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fab fa-linkedin"></i></a>
+              </div>
+            </li>
+            <li class="d-flex justify-content-between"> Soundarya
+              <div class="d-flex">
+                <a class="dropdown-item" href="https://github.com/klsoundarya" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fa-brands fa-github"></i></a>
+                <a class="dropdown-item" href="#" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fab fa-linkedin"></i></a>
+            </div>
+            </li>
+
+            <li class="d-flex justify-content-between"> Felipe
+              <div class="d-flex"> 
+                <a class="dropdown-item" href="https://github.com/zanettiprad" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fa-brands fa-github"></i></a>
+                <a class="dropdown-item" href="#" target="_blank" aria-label="Link to Github Profile"><i class="fs-4 fab fa-linkedin"></i></a>
+              </div>
+            </li>
+
+          </ul>
         </div>
-      </div>
 
       <div class="mt-3">
         <div class="text-center w-100 text-black">
@@ -128,6 +165,7 @@
 
       </div>
     </div>
+  
   </footer>
   {% comment %} Bootstrap 5 JS {% endcomment %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
