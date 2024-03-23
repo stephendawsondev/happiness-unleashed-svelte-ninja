@@ -77,9 +77,9 @@ def delete_act(request, pk):
 
 
 def completed_act(request, act_id):
-    # if not request.user.is_authenticated:
-    #   messages.error(request, 'Sorry, only logged in users can do that.')
-    #  return redirect(reverse('index'))
+    if not request.user.is_authenticated:
+        messages.error(request, 'Sorry, only logged in users can do that.')
+        return redirect(reverse('account_login'))
     if request.method == "POST":
         user_profile = get_object_or_404(UserProfile, user=request.user)
         act_of_kindness = get_object_or_404(ActsOfKindness, pk=act_id)
