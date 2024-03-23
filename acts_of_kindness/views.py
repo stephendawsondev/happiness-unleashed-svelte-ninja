@@ -7,12 +7,13 @@ from post.models import Post
 from .forms import ActsOfKindnessForm
 from post.forms import PostForm
 
+
 @login_required
 def acts_list(request):
     """Display a list of all acts of kindness."""
     if not request.user.is_superuser:
-       messages.error(request, 'Sorry, only admin can do that.')
-       return redirect(reverse('index'))
+        messages.error(request, 'Sorry, only admin can do that.')
+        return redirect(reverse('index'))
     acts = ActsOfKindness.objects.all()
     return render(request, 'acts_of_kindness/acts_list.html', {'acts': acts})
 
@@ -69,17 +70,19 @@ def edit_act(request, pk):
 def delete_act(request, pk):
     """Delete an act of kindness."""
     if not request.user.is_superuser:
-       messages.error(request, 'Sorry, only admin can do that.')
-       return redirect(reverse('index'))
+        messages.error(request, 'Sorry, only admin can do that.')
+        return redirect(reverse('index'))
     act = get_object_or_404(ActsOfKindness, pk=pk)
     act.delete()
     messages.success(request, 'Successfully deleted act of kindness!')
     return redirect(reverse('index'))
 
+
 @login_required
 def complete_and_share_act(request, act_id):
     """
-    Allows a user to mark an act of kindness as completed and decide if they want to share about it.
+    Allows a user to mark an act of kindness as
+    completed and decide if they want to share about it.
     """
     if not request.user.is_authenticated:
         messages.error(request, 'Sorry, only logged in users can do that.')
@@ -102,6 +105,3 @@ def complete_and_share_act(request, act_id):
 
     # Assuming the GET request renders a page with the option to share
     return render(request, 'acts_of_kindness/complete_and_share_act.html', {'act': act_of_kindness})
-
-
-
