@@ -18,11 +18,14 @@
 {% endif %}
 
 <div>
-    <form action="{% url 'completed_act' act.id %}" method="post">
+    <form action="{% url 'complete_and_share_act' act.id %}" method="post">
         {% csrf_token %}
         <button type="submit">Mark as Completed</button>
     </form>
 </div>
+
+
+
 
 {% if request.user.is_superuser %}
 <a href="{% url 'add_act' %}">Add another Act of Kindness</a>

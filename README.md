@@ -41,9 +41,9 @@ Structure:
 <img src=app_structure" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="800">
 
 Wireframes
-<img src="wireframe" alt="Image shows wireframe" widht="600">
-<img src="wireframe1" alt="Image shows wireframe" widht="600">
-<img src="wireframe2" alt="Image shows wireframe" widht="600">
+<img src="images_README/wireframe" alt="Image shows wireframe" widht="600">
+<img src="images_README/wireframe1" alt="Image shows wireframe" widht="600">
+<img src="images_README/wireframe2" alt="Image shows wireframe" widht="600">
 
 
 

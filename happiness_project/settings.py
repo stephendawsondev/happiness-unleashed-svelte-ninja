@@ -39,6 +39,9 @@ ALLOWED_HOSTS = ['127.0.0.1', 'happiness-unleashed-b388dd1f8f63.herokuapp.com',
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io', 'http://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
+'http://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io']
+
 # Application definition
 
 INSTALLED_APPS = [
