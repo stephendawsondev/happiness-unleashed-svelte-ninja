@@ -8,6 +8,7 @@ import cloudinary.uploader
 import cloudinary
 
 from .models import UserProfile
+from acts_of_kindness.models import ActsOfKindness, UserActStatus
 
 from .forms import UserProfileForm, CustomUserEditForm
 
@@ -25,8 +26,7 @@ def profile(request, pk):
         user_form = None
         form = None
 
-    completed_acts = profile.acts_of_kindness.filter(
-        useractstatus__completed=True)
+    completed_acts = UserActStatus.objects.filter(profile=profile, completed=True, act_of_kindness__isnull=False)
 
     if is_profile_owner and request.method == 'POST':
         user_form = CustomUserEditForm(request.POST, instance=request.user)
@@ -39,14 +39,15 @@ def profile(request, pk):
                 form.instance.profile_image = upload['url']
 
             user_form.save()
-            form.save()
+            profile_form = form.save(commit=False)
+            if 'profile_image' in request.FILES:
+                profile_form.profile_image = request.FILES['profile_image']
+            profile_form.save()
             messages.success(request, 'Profile updated successfully')
             return redirect('profile', pk=pk)
         else:
-            messages.error(
-                request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request, 'Update failed. Please ensure the form is valid.')
 
-    template = 'profiles/profile.html'
     context = {
         'is_profile_owner': is_profile_owner,
         'user_form': user_form,
@@ -54,16 +55,15 @@ def profile(request, pk):
         'profile': profile,
         'completed_acts': completed_acts,
     }
-
-    return render(request, template, context)
+    return render(request, 'profiles/profile.html', context)
 
 
 @login_required
 def account_delete(request):
-    """ Deletes the user's account and logs them out."""
+    """ Deletes the profile's account and logs them out."""
     if request.method == 'POST':
-        user = request.user
-        user.delete()
+        profile = request.profile
+        profile.delete()
         logout(request)
         messages.success(
             request, 'Your account has been successfully deleted.')

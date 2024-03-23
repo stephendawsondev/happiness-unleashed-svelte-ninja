@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 import cloudinary.uploader
@@ -38,39 +38,31 @@ def add_post(request, aok_pk):
     Add a new post A post can only be added by a logged in user
     and it must be related to a completed act of kindness."""
 
-    aok = ActsOfKindness.objects.get(pk=aok_pk)
-
-    if not aok:
-        messages.error(
-            request, 'You can only add a post for a completed act of kindness.')
-        return redirect('post_list')
-
-    user_profile = UserProfile.objects.get(user=request.user)
-    user_aok = UserActStatus.objects.get(
-        profile=user_profile, act_of_kindness=aok)
+    aok = get_object_or_404(ActsOfKindness, pk=aok_pk)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_aok = get_object_or_404(UserActStatus, profile=user_profile, act_of_kindness=aok)
 
     if not user_aok.completed:
-        messages.error(
-            request, 'You can only add a post for a completed act of kindness.')
+        messages.error(request, 'You can only add a post for a completed act of kindness.')
         return redirect('post_list')
 
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            if request.FILES:
+            post = form.save(commit=False)
+            post.user_profile = user_profile
+            post.act_of_kindness = aok
+
+            if 'image' in request.FILES:
                 image = request.FILES['image']
                 upload = cloudinary.uploader.upload(image)
                 post.image = upload['url']
 
-            post = form.save(commit=False)
-            post.user_profile = UserProfile.objects.get(user=request.user)
-            post.act_of_kindness = aok
             post.save()
             messages.success(request, 'Successfully added post!')
             return redirect('profile')
         else:
-            messages.error(
-                request, 'Failed to add post. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add post. Please ensure the form is valid.')
     else:
         form = PostForm()
 
@@ -80,7 +72,6 @@ def add_post(request, aok_pk):
     }
 
     return render(request, 'post/add_post.html', context)
-
 
 @login_required
 def edit_post(request, pk):
