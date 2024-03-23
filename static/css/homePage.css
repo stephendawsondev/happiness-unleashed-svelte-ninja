@@ -18,6 +18,7 @@
 
 .user-image {
   max-height: 45px;
+  border-radius: 50px;
 }
 
 .user-name {
@@ -40,3 +41,4 @@ footer {
     margin-top: -10px;
   }
 }
+

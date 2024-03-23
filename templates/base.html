@@ -29,7 +29,7 @@
 
 
   <title>Happiness Unleashed</title>
-  <link rel="icon" type="image/x-icon" href="../static/images/HUfavicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dyoueyepq/image/upload/v1711235224/kindness/favicon_kcjrq8.ico">
 </head>
 
 {% comment %} Body {% endcomment %}
@@ -51,7 +51,7 @@
     <nav class="navbar navbar-expand-md">
       <div class="container-fluid navContainer">
         <a class="navbar-brand" href="/">
-          <img class="logo" src="../static/images/HULogo.png" aria-label="Happiness Unleashed Logo">
+          <img class="logo" src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711233905/kindness/HULogo2_oudhxe.png" aria-label="Happiness Unleashed Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,14 +79,8 @@
           </ul>
           {% if request.user.is_authenticated %}
           <a href="{% url 'profile' request.user.userprofile.id %}" class="user-name">
-            {% if request.user.is_authenticated %}
             <span class="username">{{ request.user.username }}</span>
-            {% if request.user.image %}
-            <img src="{{ request.user.image.url }}" alt="{{ request.user.username }}" class="user-image">
-            {% else %}
-            <img src="../static/images/user-image-hu.png" alt="User Image" class="user-image">
-            {% endif %}
-            {% endif %}
+            <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}" class="user-image">
           </a>
           {% endif %}
         </div>
