@@ -10,6 +10,13 @@
 {% endblock %}
 
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 <section class="py-5" id="post-list-section">
   <div class="container">
     <h1>User-submitted posts</h1>
@@ -22,6 +29,17 @@
         {% if post.image %}
         <img src="{{ post.image.url }}" alt="{{ post.name }}" style="max-width: 100px; max-height: 100px;">
         {% endif %}
+        <form action="{% url 'like_post' post.id %}" method="post">
+          {% csrf_token %}
+          {% if user.is_authenticated %}
+          <a href="{% url 'like_post' post.id %}" class="like-button">
+            <i class="fa fa-heart"></i> Like
+          </a>
+          <span>{{ post.like_count }} Likes</span>
+          {% else %}
+            <p>Please log in to like posts.</p>
+          {% endif %}
+        </form>
       </li>
       {% endfor %}
     </ul>

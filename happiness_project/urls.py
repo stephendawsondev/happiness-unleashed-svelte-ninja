@@ -22,7 +22,8 @@ from happiness_app import views as index_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_views.index, name="index"),
+    path('', index_views.index, name='index'),
+    path('our-team/', index_views.our_team, name='our_team'),
     path('accounts/', include('allauth.urls')),
     path('acts_of_kindness/', include('acts_of_kindness.urls')),
     path('profile/', include('profiles.urls')),
