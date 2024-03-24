@@ -9,58 +9,58 @@
 
 {% block content %}
 <section class="py-5" id="acts-of-kindness-slider">
-    <div class="container">
-        <div id="carouselIndicators" class="carousel slide carousel-fade">
-            <div class="carousel-indicators">
-                {% for act in acts %}
-                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}"
-                    {% if forloop.first %}class="active" aria-current="true" {% endif %}
-                    aria-label="Slide {{ forloop.counter }}"></button>
-                {% endfor %}
-            </div>
-            <div class="carousel-inner">
-                {% for act in acts %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide {{ forloop.counter }} label</h5>
-                        <p>Some representative placeholder content for slide {{ forloop.counter }}.</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+  <div class="container">
+    <div id="carouselIndicators" class="carousel slide carousel-fade">
+      <div class="carousel-indicators">
+        {% for act in acts %}
+        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}" 
+        {% if forloop.first %}class="active" aria-current="true" {% endif %}
+          aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for act in acts %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Slide {{ forloop.counter }} label</h5>
+            <p>Some representative placeholder content for slide {{ forloop.counter }}.</p>
+          </div>
         </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </div>
 </section>
 <section class="pb-5" id="acts-of-kindness-cards">
-    <div class="container py-5">
-        <div class="row overflow-auto flex-nowrap">
-            {% for act in random_acts %}
-            <div class="col-md-5 mb-3" style="max-width: 300px; margin-right: 30px;">
-                <div class="card" style="height: 400px;">
-                    {% if act.image %}
-                    <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ act.name }}</h5>
-                        <p class="card-text">{{ act.description }}</p>
-                        <!-- <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a> -->
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+  <div class="container py-5">
+    <div class="row overflow-auto flex-nowrap">
+      {% for act in random_acts %}
+      <div class="col-md-5 mb-3" style="max-width: 300px; margin-right: 30px;">
+        <div class="card" style="height: 400px;">
+          {% if act.image %}
+          <img src="{{ act.image }}" class="card-img-top" alt="{{ act.name }}">
+          {% else %}
+          <img src="../../../static/images/act-of-kindness-no-image.jpg" class="card-img-top" alt="{{ act.name }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ act.name }}</h5>
+            <p class="card-text">{{ act.description }}</p>
+            <!-- <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a> -->
+          </div>
         </div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
 </section>
 
 {% endblock %}
