@@ -1,0 +1,35 @@
+/* css styles for team page and about section */
+
+
+.container {
+    background-color: aqua;
+    padding: 0.3rem;
+    margin: 0.1 rem;
+}
+
+
+.card {
+    background-color: seagreen;
+    padding: 3px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h5 {
+
+}
+
+
+.to_the_top {
+    
+}
+
+
+/* responsvie desing */ 
+@media screen and (min-width: 768px) {
+    #acts-of-kindness-slider .carousel-inner {
+      max-height: 400px;
+    }
+  }
