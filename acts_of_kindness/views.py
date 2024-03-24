@@ -101,5 +101,5 @@ def complete_and_share_act(request, act_id):
         return redirect('add_post', aok_pk=act_id)
     else:
         messages.success(request, 'Act of kindness marked as completed.')
-        return redirect('profile')
+        return redirect('profile', pk=user_profile.pk)
 
