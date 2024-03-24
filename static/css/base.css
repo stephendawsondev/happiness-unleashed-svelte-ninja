@@ -15,6 +15,16 @@ body {
 h1{
   font-family: "Dosis";
   color: #fc5c6c;
+  font-weight: 800;
+}
+
+h3{
+  font-family: "Dosis";
+  color: #FF949F;;
+}
+
+p{
+  font-family: "Montserrat";
 }
 
 /* Navbar */
@@ -37,26 +47,6 @@ h1{
 .user-image {
   max-height: 30px;
   border-radius: 50%;
-}
-
-.auth-drop-down{
-  margin-right: 100px;
-}
-
-@media (max-width: 767.98px) {
-  .auth-drop-down{
-    margin-right: 0px;
-  } 
-}
-
-.auth-drop-down{
-  margin-right: 100px;
-}
-
-@media (max-width: 767.98px) {
-  .auth-drop-down{
-    margin-right: 0px;
-  } 
 }
 
 .user-name {
@@ -223,6 +213,7 @@ h1,
 h1,
 .h1 {
   font-size: calc(1.375rem + 1.5vw);
+  font-weight: 700;
 }
 @media (min-width: 1200px) {
   h1,
@@ -234,6 +225,9 @@ h1,
 h2,
 .h2 {
   font-size: calc(1.325rem + 0.9vw);
+  color: #FF949F;
+  font-family: "Dosis";
+  font-weight: 800;
 }
 @media (min-width: 1200px) {
   h2,
@@ -245,6 +239,7 @@ h2,
 h3,
 .h3 {
   font-size: calc(1.3rem + 0.6vw);
+  font-weight: 700;
 }
 @media (min-width: 1200px) {
   h3,
@@ -653,7 +648,7 @@ progress {
 }
 
 .hero-text{
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .display-5 {
@@ -4402,6 +4397,7 @@ fieldset:disabled .btn {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  box-shadow: 2px 2px 4px #8e8e8e;;
 }
 .card > hr {
   margin-right: 0;
@@ -4434,6 +4430,9 @@ fieldset:disabled .btn {
 
 .card-title {
   margin-bottom: var(--bs-card-title-spacer-y);
+  color: #FF949F;
+  font-family: "Dosis";
+  font-weight: 800;
 }
 
 .card-subtitle {
