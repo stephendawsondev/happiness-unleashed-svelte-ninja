@@ -20,9 +20,10 @@ In this section, we will briefly discuss how our team addressed the applicable c
 -  Project demonstrates responsiveness, accessibility, and thorough testing
 -  Beyond standard requirements these are our more innovative features/functionalities: create user accounts, create individual user posts, create own acts of kindness  
 -  As a team we worked together in on respository, splitted task according to interest and skills
-    - Backend focus: Stephen, Hilla, Ann
+    - Backend focus: Stephen, Ann
     - Frontend focus: Felipe, Claudio
     - content creation, images and documentation: Soundarya, Florian
+    - Scrum Master: Hilla
 
 
 # ABOUT SUBMISSION
@@ -69,6 +70,17 @@ Here are shwon a few wireframes we used to set up the subpages. During the proje
 <img src="images_README/wireframe.PNG" alt="Image shows wireframe" width="200">
 <img src="images_README/wireframe1.PNG" alt="Image shows wireframe" width="400">
 <img src="images_README/wireframe2.PNG" alt="Image shows wireframe" width="200">
+
+
+## Testing
+
+- user interface/ experience testing
+- url testing, internal, external
+- test form submit
+- content 
+- responsiveness
+- accessability
+- images have alt types, aria labels
 
 
 ## Credits
