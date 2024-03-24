@@ -1,30 +1,43 @@
 /* css styles for team page and about section */
 
-
 .card {
     background-color: #f2e1c3;
     padding: 3px;
 }
 
-
-/* is not working. buttons are supposed to be blue! */
+/* Ensure buttons are blue */
 .btn-primary {
     background-color: #3bb8ff;
 }
 
-
+/* Center align content */
 .to_the_top {
     text-align: center;
     margin: auto;
 }
 
+/*keep the buttons at the bottom of the card */
+.container.text-center {
 
-/* responsvie design */ 
+}
+
+
+/*fix the image size to 200x200*/
+.card-img-top {
+    max-width: 180px;
+    max-height: 180px;
+    margin: auto;
+}
+
+/* Responsive design */
 @media screen and (min-width: 768px) {
-    #acts-of-kindness-slider .carousel-inner {
-      max-height: 400px;
+    #acts-of-kindness-slider .carousel-inner img {
+        max-width: 152px; /* Limit maximum width */
+        width: auto; /* Reset width to allow for responsiveness */
+        height: 152px; /* Set height to maintain 1:1 aspect ratio */
     }
 
     .to_the_top {
         display: none;
     }
+}
