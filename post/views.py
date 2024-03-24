@@ -27,7 +27,7 @@ def post_list(request):
     """Display a list of all posts."""
     posts = Post.objects.all()
 
-    paginator = Paginator(posts, 9) # adjustment for number of pages
+    paginator = Paginator(posts, 9)  # adjustment for number of pages
 
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
@@ -38,7 +38,6 @@ def post_list(request):
     })
 
 
-
 @login_required
 def add_post(request, aok_pk):
     """
@@ -47,10 +46,12 @@ def add_post(request, aok_pk):
 
     aok = get_object_or_404(ActsOfKindness, pk=aok_pk)
     user_profile = get_object_or_404(UserProfile, user=request.user)
-    user_aok = get_object_or_404(UserActStatus, profile=user_profile, act_of_kindness=aok)
+    user_aok = get_object_or_404(
+        UserActStatus, profile=user_profile, act_of_kindness=aok)
 
     if not user_aok.completed:
-        messages.error(request, 'You can only add a post for a completed act of kindness.')
+        messages.error(
+            request, 'You can only add a post for a completed act of kindness.')
         return redirect('post_list')
 
     if request.method == 'POST':
@@ -69,7 +70,8 @@ def add_post(request, aok_pk):
             messages.success(request, 'Successfully added post!')
             return redirect('profile', pk=user_profile.pk)
         else:
-            messages.error(request, 'Failed to add post. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to add post. Please ensure the form is valid.')
     else:
         form = PostForm()
 
@@ -80,10 +82,12 @@ def add_post(request, aok_pk):
 
     return render(request, 'post/add_post.html', context)
 
+
 @login_required
 def edit_post(request, pk):
     """Edit an existing post."""
     post = Post.objects.get(pk=pk)
+    aok = post.act_of_kindness
 
     if post.user_profile.user != request.user:
         messages.error(
@@ -109,7 +113,8 @@ def edit_post(request, pk):
 
     context = {
         'form': form,
-        'post': post
+        'post': post,
+        'aok': aok
     }
 
     return render(request, 'post/edit_post.html', context)
@@ -135,7 +140,8 @@ def like_post(request, post_id):
     if post.user_profile == request.user.userprofile:
         messages.error(request, "You cannot like your own post.")
     else:
-        like, created = Like.objects.get_or_create(post=post, user_profile=request.user.userprofile)
+        like, created = Like.objects.get_or_create(
+            post=post, user_profile=request.user.userprofile)
         if created:
             messages.success(request, "You have liked this post.")
         else:
