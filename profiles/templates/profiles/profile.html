@@ -13,6 +13,13 @@
 {% endblock %}
 
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+{% if 'act_completed' in message.tags %}
+{% include 'includes/rainbow.html' %}
+{% endif %}
+{% endfor %}
+{% endif %}
 <section class="container my-5">
   <div class="row justify-content-center text-center">
     <!-- Profile section -->
