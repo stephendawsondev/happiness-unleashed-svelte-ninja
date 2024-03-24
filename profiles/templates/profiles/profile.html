@@ -60,9 +60,10 @@
 
         </div>
         <h3 class="h3 my-4">Personal Details</h3>
+
         <!-- Manually render each field in the user form -->
-        <div class="form-row text-center">
-          <div class="form-group col-md-6 mb-0">
+        <div class="form-row">
+          <div class="form-group col-md-12 mb-0">
             {{ user_form.first_name|as_crispy_field }}
             {% if user_form.first_name.errors %}
             <div class="alert alert-danger mt-2">
@@ -70,7 +71,8 @@
             </div>
             {% endif %}
           </div>
-          <div class="form-group col-md-6 mb-0">
+
+          <div class="form-group col-md-12 mb-0">
             {{ user_form.last_name|as_crispy_field }}
             {% if user_form.last_name.errors %}
             <div class="alert alert-danger mt-2">
@@ -79,8 +81,9 @@
             {% endif %}
           </div>
         </div>
+        
         <div class="form-row">
-          <div class="form-group col-md-6 mb-0">
+          <div class="form-group col-md-12 mb-0">
             {{ user_form.email|as_crispy_field }}
             {% if user_form.email.errors %}
             <div class="alert alert-danger mt-2">
@@ -90,7 +93,7 @@
           </div>
         </div>
 
-        <div class="form-group col-md-6 mb-0">
+        <div class="form-group col-md-12 mb-0">
           {{ form.country|as_crispy_field }}
           {% if form.country.errors %}
           <div class="alert alert-danger mt-2">
@@ -100,14 +103,14 @@
         </div>
         {% if request.user == user %}
         <div class="float-right">
-          <button type="submit" class="btn btn-primary ml-1">Update
+          <button type="submit" class="btn btn-outline-success ml-1">Update
             details</button>
         </div>
         {% endif %}
       </form>
 
       <!-- User acts of kindness -->
-      <div>
+      <div class="pt-4">
         <h2>My Completed Acts of Kindness</h2>
         <ul>
           {% for user_act_status in completed_acts %}
@@ -121,6 +124,7 @@
           {% endfor %}
         </ul>
       </div>
+      
     </div>
   </div>
 
