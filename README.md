@@ -17,36 +17,51 @@ In this section, we will briefly discuss how our team addressed the applicable c
 
 -  CSS framework Bootstrap was used to built our user-friendly design
 -  GitHub Project includes user stories and a detailed README.md 
--  We came up with a application to remind, engage and motivate the user to act kind in their daily live
+-  We came up with a application to remind, engage and motivate the users to act kind in their daily live
 -  Project demonstrates responsiveness, accessibility, and thorough testing
--  Beyond standard requirements these ar eour more innovative features/functionalities
+-  Beyond standard requirements these are our more innovative features/functionalities
 -  As a team we worked together in on respository, splitted task according to interest and skills
 
 # ABOUT SUBMISSION
 ## Intro
-The project is about an application that motivates and engages the users to foster kindness by offering acts of kindness within their daily routine. We call it: "Kindness Unleashed: The Random Acts of Kindness App".
+Welcome to Happiness Unleashed! In a busy world where everyone's got a lot on their plate, being kind can sometimes get lost in the shuffle. That's where the Happiness Unleashed stands out as a guiding light. It's easy to feel overwhelmed by the demands of our schedules or the complexities of the world around us, but kindness has the power to break through these barriers.
+
+Picture this: in a world where everyone is rushing to meet deadlines, fulfill obligations, and chase success, a single act of kindness can make someone's day better. Whether it's a genuine smile, a helping hand, or a nice gesture, these small acts can uplift spirits, foster connection, and create ripple effects of positivity.
+
+We wanted to allow our users to spread a sense of happiness by using our happiness-unleashed challenges that inspire others to pay it forward. Imagine the happiness you feel after making someone smile, knowing you've made a difference, and the happiness that comes from spreading kindness. Let's challenge ourselves to break free from the busyness and self-absorption of modern life.
+
+Together, we can make the world a brighter, happier place where each of us has the power to unleash waves of happiness and countless smiles. 
 
 ## Goal
-The goal section provides a concise summary of the main objective or purpose of the project or software described in this README. It addresses the following aspects:
+Our app aims to make kindness a daily habit by offering simple challenges that inspire users to turn their good intentions into actions.
 
-- ➡️ Problem: In all our stressful and hectical life we barley think about others and even if we want to spread happines and kindness often it's hard to execute certain acts of kindness to other people. Often it's not about the mindset or attitue it's more a lack of awareness, ideas and missing reminder within our daily rountine.
-- ➡️ Objective: We are looking for an application that fosters and simplifies kindness and happiness and can be integrated easily within our daily rountine.
-- ➡️ Target Audience: People who are willing to include more happiness and kindness in their world by using smart applications.
-- ➡️ Benefits: world hapiness, lots of smiles aroudn the world! 
+- ➡️ Problem: In a world where kindness is plentiful but easily overlooked in the chaos of everyday life, our app provides a platform for users to share their acts of kindness, sparking a chain reaction of positivity.
+- ➡️ Objective: With this application, we aim to encourage a culture of kindness that extends beyond individual acts. We want these acts of kindness to become a natural part of people's lives, enriching their day-to-day experiences. By promoting kindness, we believe that people will not only feel happier but also cherish the moments when they are able to make a positive impact on others.
+- ➡️ Target Audience:Our target audience includes individuals who value kindness and want to incorporate more of it into their daily lives and who also believes in the power of small acts of kindness to make a difference in the world. Our audience may also include those who are interested in personal development and self-improvement, as practicing kindness can have a positive impact on mental and emotional well-being.
+- ➡️ Benefits: By promoting kindness, our app can create a more compassionate and connected community, where individuals feel happier and more fulfilled.
 
 ## Tech
 In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
 
-Structure:
-<img src=app_structure" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="800">
+The project is build with frameworks such as Django and Bootstrap.
 
-Wireframes
-<img src="images_README/wireframe" alt="Image shows wireframe" widht="600">
-<img src="images_README/wireframe1" alt="Image shows wireframe" widht="600">
-<img src="images_README/wireframe2" alt="Image shows wireframe" widht="600">
+### Structure:
+<img src="images_README/app_structure.PNG" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="600">
+
+### Wireframes
+
+
+<img src="images_README/wireframe.PNG" alt="Image shows wireframe" width="200">
+<img src="images_README/wireframe1.PNG" alt="Image shows wireframe" width="400">
+<img src="images_README/wireframe2.PNG" alt="Image shows wireframe" width="200">
 
 
 
 ## Credits
 In the credits section, we provide information about the sources used
-TBC
+TBD
+
+- image source
+- favicon generator
+- templates (Django, Bootstrap)
+- ...
