@@ -14,32 +14,27 @@
 
 {% block content %}
 <section class="container my-5">
-  <div class="row">
+  <div class="row justify-content-center text-center">
     <!-- Profile section -->
-    <div class="col-12 col-lg-6 mb-5 pl-lg-0">
-      <h2 class="h2 mb-3">My Profile</h2>
-      {% if profile.profile_image %}
-      <img src="{{ profile.profile_image.url }}" alt="Profile image" class="profile-image mb-3">
-      {% else %}
-      <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1694389081/default_profile_ekdors.jpg"
-        alt="Profile image placeholder" class="profile-image mb-3">
-      {% endif %}
-      <h2>My Completed Acts of Kindness</h2>
-      <ul>
-        {% for user_act_status in completed_acts %}
-        <li>{{ user_act_status.act_of_kindness.name }} - {{ user_act_status.act_of_kindness.description }}
-          <p>Thank you for completing an act of kindness! Would you like to
-            share a post about it, to inspire others to also do the act of kindness?</p>
-          <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-primary">Share Your Act</a>
-        </li>
-        {% empty %}
-        <li>You have not completed any acts of kindness yet.</li>
-        {% endfor %}
-      </ul>
+    <div class="col-12 col-lg-6 mb-5 pl-lg-0 ustify-content-center">
 
+      <h2 class="h2 mb-3 text-center">My Profile</h2>
+
+      <!-- Profile image -->
+      <div class="text-center">
+        {% if profile.profile_image %}
+        <img src="{{ profile.profile_image.url }}" alt="Profile image"
+          class="profile-image mb-3 rounded-circle img-fluid">
+        {% else %}
+        <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1694389081/default_profile_ekdors.jpg"
+          alt="Profile image placeholder" class="profile-image mb-3">
+        {% endif %}
+      </div>
+
+      <!-- Profile details/update -->
       {% if request.user.is_authenticated and is_profile_owner %}
       <form action="{% url 'profile' request.user.userprofile.id %}" method="POST" id="profile-update-form"
-        enctype="multipart/form-data">``
+        enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
           <label class="form-label text-secondary" for="{{ form.profile_image.id_for_label }}">Update profile
@@ -66,7 +61,7 @@
         </div>
         <h3 class="h3 my-4">Personal Details</h3>
         <!-- Manually render each field in the user form -->
-        <div class="form-row">
+        <div class="form-row text-center">
           <div class="form-group col-md-6 mb-0">
             {{ user_form.first_name|as_crispy_field }}
             {% if user_form.first_name.errors %}
@@ -110,13 +105,34 @@
         </div>
         {% endif %}
       </form>
-      {% if request.user == user %}
+
+      <!-- User acts of kindness -->
+      <div>
+        <h2>My Completed Acts of Kindness</h2>
+        <ul>
+          {% for user_act_status in completed_acts %}
+          <li>{{ user_act_status.act_of_kindness.name }} - {{ user_act_status.act_of_kindness.description }}
+            <p>Thank you for completing an act of kindness! Would you like to
+              share a post about it, to inspire others to also do the act of kindness?</p>
+            <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-primary">Share Your Act</a>
+          </li>
+          {% empty %}
+          <li>You have not completed any acts of kindness yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete account -->
+  <div class="text-center">
+  {% if request.user == user %}
       <a href="{% url 'account_delete' %}"
-        class="btn btn-danger text-white delete-link float-right profile-delete-link">Delete
+        class="btn btn-danger text-white delete-link float-right profile-delete-link font-bold">Delete
         account</a>
       {% endif %}
       {% endif %}
-    </div>
+  </div>
 </section>
 {% if request.user == user %}
 {% comment %} Delete confirmation modal {% endcomment %}
