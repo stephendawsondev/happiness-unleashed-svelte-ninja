@@ -1,21 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   handleDeleteButton();
-
-  const themeToggle = document.querySelector(".theme-toggle");
-  const html = document.querySelector("html");
-
-  themeToggle.addEventListener("click", () => {
-    // change `data-bs-theme="dark"` of to light if it is dark in html
-    // update the innerText of the themeToggle to 🌚
-
-    if (html.getAttribute("data-bs-theme") === "dark") {
-      html.setAttribute("data-bs-theme", "light");
-      themeToggle.innerText = "🌞";
-    } else {
-      html.setAttribute("data-bs-theme", "dark");
-      themeToggle.innerText = "🌚";
-    }
-  });
 });
 
 /**

@@ -3,62 +3,117 @@
 
 {% block extra_css %}
 {{ block.super }}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <link rel="stylesheet" href="{% static 'happiness_app/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'happiness_app/css/index.css' %}">
 {% endblock extra_css %}
+
+{% block core_js %}
+{{ block.super }}
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+{% endblock core_js %}
 
 {% block content %}
 <section class="py-5" id="acts-of-kindness-slider">
-    <div class="container">
-        <div id="carouselIndicators" class="carousel slide carousel-fade">
-            <div class="carousel-indicators">
-                {% for act in acts %}
-                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}"
-                    {% if forloop.first %}class="active" aria-current="true" {% endif %}
-                    aria-label="Slide {{ forloop.counter }}"></button>
-                {% endfor %}
-            </div>
-            <div class="carousel-inner">
-                {% for act in acts %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide {{ forloop.counter }} label</h5>
-                        <p>Some representative placeholder content for slide {{ forloop.counter }}.</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+  <div class="container">
+    <div id="carouselIndicators" class="carousel slide carousel-fade">
+      <div class="carousel-indicators">
+        {% for act in acts %}
+        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}"
+          {% if forloop.first %}class="active" aria-current="true" {% endif %}
+          aria-label="Slide {{ forloop.counter }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for act in acts %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{ act.title }}</h5>
+            <p>{{ act.description }}</p>
+          </div>
         </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </div>
 </section>
 <section class="pb-5" id="acts-of-kindness-cards">
-    <div class="container py-5">
-        <div class="row">
-            {% for act in random_acts %}
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    {% if act.image %}
-                    <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ act.name }}</h5>
-                        <p class="card-text">{{ act.description }}</p>
-                        <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a>
-                    </div>
-                </div>
+  <div class="container py-5 overflow-hidden">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for act in random_acts %}
+        <div class="swiper-slide">
+          <div class="card mb-3" style="max-width: 300px; height: 400px;">
+            {% if act.image %}
+            <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
+            {% else %}
+            <img src="{% static 'path/to/default/image.jpg' %}" class="card-img-top" alt="Default Image">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ act.name }}</h5>
+              <p class="card-text">{{ act.description }}</p>
             </div>
-            {% endfor %}
+            <div class="act-buttons align-items-end">
+              <button type="button" class="btn btn-outline-success mr-2">Done</button>
+              <a href={% url 'act_detail' act.id %} class="btn btn-outline-primary">View</a>
+            </div>
+          </div>
         </div>
+        {% endfor %}
+      </div>
     </div>
+  </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 5,
+      spaceBetween: 1,
+      slidesPerGroup: 4,
+      loop: true,
+      loopFillGroupWithBlank: false,
+
+      // Swiper Pagination for navigation dots
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true, // Make pagination dots clickable
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // Responsive breakpoints
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+        },
+        1024: {
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+        }
+      }
+    });
+  });
+</script>
 {% endblock %}

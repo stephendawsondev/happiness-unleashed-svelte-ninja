@@ -27,18 +27,14 @@ def post_list(request):
     """Display a list of all posts."""
     posts = Post.objects.all()
 
-    for post in posts:
-        post.aok = post.act_of_kindness
-
-    paginator = Paginator(posts, 2)
+    paginator = Paginator(posts, 9) # adjustment for number of pages
 
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
-    posts_on_page = page_obj.object_list
 
     return render(request, 'post/post_list.html', {
-        'posts': posts_on_page,
-        'page_obj': page_obj
+        'posts': page_obj,
+        'page_obj': page_obj,
     })
 
 
