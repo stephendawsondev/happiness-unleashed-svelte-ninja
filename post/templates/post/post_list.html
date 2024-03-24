@@ -11,20 +11,24 @@
   <div class="container my-4">
     <h1>User-submitted posts</h1>
     {% if posts %}
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" data-masonry='{"percentPosition": true}'>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3" data-masonry='{"percentPosition": true}'>
       {% for post in posts %}
       <div class="col">
         <div class="card">
+          {% if post.image %}
           <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+          {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
             <p class="card-text">{{ post.content }}</p>
-            <p class="card-text"><small class="text-muted">By <span class="card-author">{{ post.user_profile.user.username }}</span> on {{ post.created_at }}</small></p>
+            <p class="card-text"><small class="text-muted">By <span
+                  class="card-author">{{ post.user_profile.user.username }}</span> on {{ post.created_at }}</small></p>
           </div>
           <div class="card-footer d-flex justify-content-between align-items-center">
 
             <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read more</a>
-            <p class="m-0"><span class="btn-primary custom-act-of-kindness"><i class="fas fa-star" style="color: green;"></i> {{ post.act_of_kindness }} </span></p>
+            <p class="m-0"><span class="btn-primary custom-act-of-kindness"><i class="fas fa-star"
+                  style="color: green;"></i> {{ post.act_of_kindness }} </span></p>
 
           </div>
         </div>
@@ -60,13 +64,14 @@
 </section>
 {% endblock %}
 {% block extra_js %}
- <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
-  <script>
-    // Initialize Masonry layout
-    var grid = document.querySelector('.row');
-    var msnry = new Masonry(grid, {
-      itemSelector: '.col',
-      percentPosition: true
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+  integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+<script>
+  // Initialize Masonry layout
+  var grid = document.querySelector('.row');
+  var msnry = new Masonry(grid, {
+    itemSelector: '.col',
+    percentPosition: true
+  });
+</script>
 {% endblock %}
