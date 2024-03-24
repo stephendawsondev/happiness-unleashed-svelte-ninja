@@ -12,21 +12,28 @@
 {% endblock %}
 
 {% block content %}
-<h2>Edit Act of Kindness</h2>
-
-
-<form method="POST" action="{% url 'edit_act' pk=act.pk %}" class="" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in form %}
+<section class="py-5" id="edit-act-section">
+  <div class="container">
+    <h2 class="mb-4">Edit Act of Kindness</h2>
+    <form method="POST" action="{% url 'edit_act' pk=act.pk %}" class="needs-validation" novalidate enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="mb-3 mt-2">
         {% if field.name != 'image' %}
-            {{ field | as_crispy_field }}
+        {{ field | as_crispy_field }}
         {% else %}
-            {{ field }}
+        {{ field }}
         {% endif %}
-    {% endfor %}
-    <div class="text-right">
-        <a class="btn" href="{% url 'index' %}">Cancel</a>
-        <button class="btn" type="submit">Edit Act of Kindness</button>
-    </div>
-</form>
+        <div class="invalid-feedback mt-4">
+          This field is required.
+        </div>
+      </div>
+      {% endfor %}
+      <div class="text-end mt-4">
+        <a href="{% url 'index' %}" class="btn btn-secondary me-2">Cancel</a>
+        <button type="submit" class="btn btn-primary">Edit Act of Kindness</button>
+      </div>
+    </form>
+  </div>
+</section>
 {% endblock %}
