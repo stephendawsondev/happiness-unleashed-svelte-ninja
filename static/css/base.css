@@ -57,6 +57,10 @@ footer {
   margin-top: auto;
 }
 
+.footer-dropdown {
+  background-color: #fbf1f2;
+}
+
 @media (max-width: 767px) {
   .navContainer {
     margin-top: -10px;
