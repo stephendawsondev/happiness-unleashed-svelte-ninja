@@ -1,5 +1,6 @@
 #acts-of-kindness-slider .carousel-inner {
   max-height: 90px;
+  background-color: #FF949F;
 }
 
 @media screen and (min-width: 768px) {
