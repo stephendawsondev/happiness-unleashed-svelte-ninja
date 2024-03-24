@@ -26,6 +26,7 @@
       <li>
         <h2><a href="{% url 'post_detail' post.id %}">{{ post.aok.name }}</a></h2>
         <p>{{ post.content|truncatewords:20 }}</p>
+        <p>Author: {{post.user_profile.user}}</p>
         {% if post.image %}
         <img src="{{ post.image.url }}" alt="{{ post.name }}" style="max-width: 100px; max-height: 100px;">
         {% endif %}
