@@ -59,6 +59,10 @@ Lastly, the "Account" section facilitates user authentication, providing options
 <img src="images_README/app_structure.PNG" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="600">
 
 
+The structure of models form a database perspective is shown in the following:
+<img src="images_README/model_structure.PNG" alt="image shows structure of database." width="600">
+
+
 ## Wireframes
 Here are shwon a few wireframes we used to set up the subpages. During the project slight adjustments has been made.
 
@@ -72,4 +76,4 @@ In the credits section, we provide information about the sources we have used du
 
 - image source: https://unsplash.com/, https://www.freepik.com/
 - favicon generator: https://favicon.io/
-- templates/ frameworks i.e. https://getbootstrap.com/docs/5.3/layout/containers/, https://github.com/django/django
+- templates/ frameworks i.e. https://getbootstrap.com/docs/5.3/layout/containers/, https://github.com/django/django, https://app.box.com/s/r356kxmp3yiwa96evgmpera7il9t4xyg
