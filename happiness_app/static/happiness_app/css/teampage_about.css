@@ -16,9 +16,8 @@
     margin: auto;
 }
 
-/*keep the buttons at the bottom of the card */
-.container.text-center {
-
+.card-text {
+    text-align: justify;
 }
 
 
@@ -37,6 +36,7 @@
         height: 152px; /* Set height to maintain 1:1 aspect ratio */
     }
 
+    /**/
     .to_the_top {
         display: none;
     }
