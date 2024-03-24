@@ -40,9 +40,7 @@ Our app aims to make kindness a daily habit by offering simple challenges that i
 - ➡️ Benefits: By promoting kindness, our app can create a more compassionate and connected community, where individuals feel happier and more fulfilled.
 
 ## Tech
-In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
-
-The project is build with frameworks such as Django and Bootstrap.
+"Happiness Unleashed" is crafted using a blend of powerful technologies including Django for robust backend functionality, Bootstrap for sleek and responsive frontend design, and a mix of HTML, CSS, Python, and JavaScript to deliver a seamless and joyful user experience.
 
 ### Structure:
 <img src="images_README/app_structure.PNG" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="600">
