@@ -59,3 +59,13 @@
   {% endif %}
 </section>
 {% endblock %}
+{% block extra_js %}
+<script>
+    // Initialize Masonry layout
+    var grid = document.querySelector('.row');
+    var msnry = new Masonry(grid, {
+      itemSelector: '.col',
+      percentPosition: true
+    });
+  </script>
+{% endblock %}
