@@ -10,24 +10,24 @@
     background-color: #3bb8ff;
 }
 
-/* Center align content */
-.to_the_top {
-    text-align: center;
-    margin: auto;
-}
-
-/*keep the buttons at the bottom of the card */
-.container.text-center {
-
+.card-text {
+    text-align: justify;
 }
 
 
-/*fix the image size to 200x200*/
+/*fix the image size to 180x180*/
 .card-img-top {
     max-width: 180px;
     max-height: 180px;
     margin: auto;
 }
+
+.about_image {
+    text-align: center;
+    height: auto;
+    max-width: 200px;
+}
+
 
 /* Responsive design */
 @media screen and (min-width: 768px) {
@@ -36,8 +36,3 @@
         width: auto; /* Reset width to allow for responsiveness */
         height: 152px; /* Set height to maintain 1:1 aspect ratio */
     }
-
-    .to_the_top {
-        display: none;
-    }
-}

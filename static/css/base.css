@@ -22,7 +22,6 @@ body {
 
 .logo {
   max-height: 55px;
-  border-radius: 15px;
 }
 
 .user-image {
@@ -37,10 +36,6 @@ body {
 }
 
 /* Index page */
-.card-img-top {
-  height: 160px;
-}
-
 .act-buttons {
   margin-left: 50px;
   margin-bottom: 5px;
@@ -471,6 +466,7 @@ button,
 [type="submit"] {
   -webkit-appearance: button;
 }
+
 button:not(:disabled),
 [type="button"]:not(:disabled),
 [type="reset"]:not(:disabled),
