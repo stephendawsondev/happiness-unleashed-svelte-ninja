@@ -10,8 +10,7 @@
 # SUBMISSION
 ## Deployment
 
-The project is deployed and can be accessed at [http://your-deployed-link.com](http://your-deployed-link.com).
-
+The project is deployed and can be accessed at https://dashboard.heroku.com/apps/happiness-unleashed/deploy/github
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
 
@@ -64,4 +63,5 @@ TBD
 - image source
 - favicon generator
 - templates (Django, Bootstrap)
-- ...
+- canva
+- freepik
