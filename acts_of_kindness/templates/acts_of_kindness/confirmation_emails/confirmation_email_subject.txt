@@ -1,0 +1,1 @@
+Happiness Unleashed Act of Kindness {{ act.name }} received!
