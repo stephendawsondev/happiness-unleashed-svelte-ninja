@@ -39,6 +39,11 @@ body {
   height: 160px;
 }
 
+.act-buttons {
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
 /* Footer */
 footer {
   background-color: #f2e1c3;

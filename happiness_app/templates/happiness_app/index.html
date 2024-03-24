@@ -56,6 +56,17 @@
             <p class="card-text">{{ act.description }}</p>
             <!-- <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a> -->
           </div>
+          <div class="act-buttons align-items-end">
+            <button type="button" class="btn btn-outline-danger mr-2">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button type="button" class="btn btn-outline-success mr-2">
+              <i class="fas fa-check"></i> Done
+            </button>
+            <button type="button" class="btn btn-outline-secondary">
+              Change
+            </button>
+          </div>
         </div>
       </div>
       {% endfor %}
