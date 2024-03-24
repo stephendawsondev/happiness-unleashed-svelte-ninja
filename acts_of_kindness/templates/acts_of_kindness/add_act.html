@@ -22,6 +22,7 @@
         {% if field.name != 'image' %}
         {{ field | as_crispy_field }}
         {% else %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
         {{ field }}
         {% endif %}
         <div class="invalid-feedback">

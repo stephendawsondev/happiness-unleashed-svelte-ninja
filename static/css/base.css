@@ -6,6 +6,12 @@ body {
   flex-direction: column;
 }
 
+.messages-container {
+  top: 3%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
 h1{
   font-family: "Dosis";
   color: #fc5c6c;
@@ -29,7 +35,18 @@ h1{
 }
 
 .user-image {
-  max-height: 45px;
+  max-height: 30px;
+  border-radius: 50%;
+}
+
+.auth-drop-down{
+  margin-right: 100px;
+}
+
+@media (max-width: 767.98px) {
+  .auth-drop-down{
+    margin-right: 0px;
+  } 
 }
 
 .auth-drop-down{
@@ -62,6 +79,10 @@ footer {
   border-radius: 15px;
   margin: 10px 5px;
   margin-top: auto;
+}
+
+.footer-dropdown {
+  background-color: #fbf1f2;
 }
 
 @media (max-width: 767px) {
