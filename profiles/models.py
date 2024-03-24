@@ -14,7 +14,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     profile_image = CloudinaryField(
-        'image', blank=True, null=True)
+        'image', blank=True, null=True,
+        default=(
+            "https://res.cloudinary.com/dyoueyepq/image/"
+            "upload/v1694389081/default_profile_ekdors.jpg"
+            )
+        )
     country = CountryField(blank_label='Country',
                            null=True, blank=True)
 

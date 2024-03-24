@@ -26,7 +26,6 @@
       {% endif %}
       <h2>My Completed Acts of Kindness</h2>
       <ul>
-
         {% for user_act_status in completed_acts %}
         <li>{{ user_act_status.act_of_kindness.name }} - {{ user_act_status.act_of_kindness.description }}
           <p>Thank you for completing an act of kindness! Would you like to

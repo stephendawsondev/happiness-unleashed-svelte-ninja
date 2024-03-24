@@ -10,7 +10,7 @@ def index(request):
     """A view to return the homepage."""
 
     acts = ActsOfKindness.objects.all().filter(
-        approved=True)[:5]
+        approved=True)[:200]
     random_acts = random.sample(list(acts), 4) if len(acts) > 4 else acts
 
     context = {
@@ -19,3 +19,14 @@ def index(request):
     }
 
     return render(request, 'happiness_app/index.html', context)
+
+
+def our_team(request):
+    """A view to return the our team page."""
+
+    return render(request, 'happiness_app/our_team.html')
+
+def about(request):
+    """A view to return the our about page."""
+
+    return render(request, 'happiness_app/about.html')

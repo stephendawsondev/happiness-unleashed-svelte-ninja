@@ -35,12 +35,15 @@ DEBUG = True
 SITE_ID = 1
 
 ALLOWED_HOSTS = ['127.0.0.1', 'happiness-unleashed-b388dd1f8f63.herokuapp.com',
-                 '8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io', '8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io']
+                 '8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io', '8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io',
+                 '8000-fl0w97-happinesapp-hsuolreleyz.ws-eu110.gitpod.io',]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io', 'http://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io']
-
-CSRF_TRUSTED_ORIGINS = ['https://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
-'http://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io',
+    'http://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io',
+    'https://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
+    'http://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
+]
 
 # Application definition
 

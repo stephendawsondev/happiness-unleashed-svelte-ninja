@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'happiness_app/css/style.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="py-5" id="our-team-section">
+  <div class="container">
+    <h1>Our team</h1>
+    
+    <div class="card" style="width: 18rem;">
+      <img src="https://ca.slack-edge.com/T0L30B202-U050ACTDD41-cbad96001cef-512" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Stephen Dawson</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="https://github.com/stephendawsondev" class="btn btn-primary">GitHub</a>
+        <a href="https://www.linkedin.com/in/sdstephendawson/" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://avatars.githubusercontent.com/u/115192139?v=4" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Hilla Muraja</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="https://github.com/HMuraja" class="btn btn-primary">GitHub</a>
+        <a href="https://avatars.githubusercontent.com/u/115192139?v=4" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://ca.slack-edge.com/T0L30B202-U04LMHHNQAD-1cb37693c1ce-512" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Felipe Zanetti</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="" class="btn btn-primary">GitHub</a>
+        <a href="" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://ca.slack-edge.com/T0L30B202-U06MMEN9XFT-g0cb001ab8f5-512" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Soundarya Kantimahanti</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="" class="btn btn-primary">GitHub</a>
+        <a href="" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://ca.slack-edge.com/T0L30B202-U02V9H1BSE6-a4ef763f5389-512" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Claudio Cruz</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="" class="btn btn-primary">GitHub</a>
+        <a href="" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://ca.slack-edge.com/T0L30B202-U05RK9VUZU6-78065cb8e885-512" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Ann Edvinsson</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="https://github.com/aslinedvinsson" class="btn btn-primary">GitHub</a>
+        <a href="https://www.linkedin.com/in/ann-edvinsson/" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://ca.slack-edge.com/T0L30B202-U063DUP89CK-d418e58d3216-512" class="card-img-top" alt="profil_image">
+      <div class="card-body">
+        <h5 class="card-title">Florian Guldner</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="https://github.com/Fl0W97" class="btn btn-primary">GitHub</a>
+        <a href="www.linkedin.com/in/florian-guldner-4a684897" class="btn btn-primary">Linkedin</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

@@ -37,16 +37,25 @@ The goal section provides a concise summary of the main objective or purpose of 
 ## Tech
 In the tech section, we provide information about the technology stack, dependencies, and any technical details related to the project.
 
-Structure:
-<img src=app_structure" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="800">
+The project is build with frameworks such as Django and Bootstrap.
 
-Wireframes
-<img src="images_README/wireframe" alt="Image shows wireframe" widht="600">
-<img src="images_README/wireframe1" alt="Image shows wireframe" widht="600">
-<img src="images_README/wireframe2" alt="Image shows wireframe" widht="600">
+### Structure:
+<img src="images_README/app_structure.PNG" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="600">
+
+### Wireframes
+
+
+<img src="images_README/wireframe.PNG" alt="Image shows wireframe" width="200">
+<img src="images_README/wireframe1.PNG" alt="Image shows wireframe" width="400">
+<img src="images_README/wireframe2.PNG" alt="Image shows wireframe" width="200">
 
 
 
 ## Credits
 In the credits section, we provide information about the sources used
-TBC
+TBD
+
+- image source
+- favicon generator
+- templates (Django, Bootstrap)
+- ...
