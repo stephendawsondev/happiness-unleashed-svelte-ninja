@@ -3,72 +3,49 @@
 
 {% block extra_css %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'post/css/post.css' %}">
-{% endblock %}
-
-{% block page_header %}
+<link rel="stylesheet" href="{% static 'css/masonry.css' %}">
 {% endblock %}
 
 {% block content %}
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li class="{{ message.tags }}">{{ message }}</li>
+<div class="container my-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" data-masonry='{"percentPosition": true}'>
+    {% for post in posts %}
+    <div class="col">
+      <div class="card">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.content }}</p>
+          <p class="card-text"><small class="text-muted">By <span class="card-author">{{ post.user_profile.user.username }}</span> on {{ post.created_at }}</small></p>
+          <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
     {% endfor %}
-</ul>
-{% endif %}
-<section class="py-5" id="post-list-section">
-  <div class="container">
-    <h1>User-submitted posts</h1>
-    {% if posts %}
-    <ul>
-      {% for post in posts %}
-      <li>
-        <h2><a href="{% url 'post_detail' post.id %}">{{ post.aok.name }}</a></h2>
-        <p>{{ post.content|truncatewords:20 }}</p>
-        {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.name }}" style="max-width: 100px; max-height: 100px;">
-        {% endif %}
-        <form action="{% url 'like_post' post.id %}" method="post">
-          {% csrf_token %}
-          {% if user.is_authenticated %}
-          <a href="{% url 'like_post' post.id %}" class="like-button">
-            <i class="fa fa-heart"></i> Like
-          </a>
-          <span>{{ post.like_count }} Likes</span>
-          {% else %}
-            <p>Please log in to like posts.</p>
-          {% endif %}
-        </form>
-      </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-    <p>No posts yet!</p>
-    {% endif %}
+
   </div>
-  <!-- Pagination -->
-<div class="pagination">
-  <span class="step-links">
+  {% if page_obj.has_previous or page_obj.has_next %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      <li class="page-item">
+        <a class="page-link" href="?page=1" tabindex="-1" aria-disabled="true">First</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      </li>
       {% endif %}
-
-      <span class="current">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-      </span>
-
+      <li class="page-item disabled"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
       {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      </li>
       {% endif %}
-  </span>
+    </ul>
+  </nav>
+  {% endif %}
 </div>
-</section>
 {% endblock %}
-
-{% block extra_js %}
-{{ block.super }}
-
-{% endblock extra_js %}
