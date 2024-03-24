@@ -25,3 +25,8 @@ def our_team(request):
     """A view to return the our team page."""
 
     return render(request, 'happiness_app/our_team.html')
+
+def about(request):
+    """A view to return the our about page."""
+
+    return render(request, 'happiness_app/about.html')
