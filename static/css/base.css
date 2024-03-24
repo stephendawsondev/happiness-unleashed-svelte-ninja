@@ -8,7 +8,6 @@ body {
 
 h1{
   font-family: "Dosis";
-  font-weight: 900;
   color: #fc5c6c;
 }
 
@@ -16,9 +15,8 @@ h1{
 .navbar {
   max-height: 100x;
   background-color: #f2e1c3;
-  margin: 10px 5px;
-  border-radius: 15px;
   justify-items: center;
+  box-shadow: 2px 2px 4px #8e8e8e;
 }
 
 .navbar-collapse {
@@ -32,6 +30,16 @@ h1{
 
 .user-image {
   max-height: 45px;
+}
+
+.auth-drop-down{
+  margin-right: 100px;
+}
+
+@media (max-width: 767.98px) {
+  .auth-drop-down{
+    margin-right: 0px;
+  } 
 }
 
 .user-name {
@@ -621,6 +629,10 @@ progress {
   .display-4 {
     font-size: 3.5rem;
   }
+}
+
+.hero-text{
+  font-weight: 600;
 }
 
 .display-5 {
