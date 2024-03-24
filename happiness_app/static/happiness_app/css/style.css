@@ -7,3 +7,7 @@
     max-height: 400px;
   }
 }
+
+.negative-margin {
+  margin-bottom: -3%;
+}
