@@ -17,20 +17,20 @@
         {% endif %}
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Kindness act:</h5>
+            <h5 class="card-title">Description:</h5>
             <p class="card-text">{{ aok.description }}</p>
           </div>
         </div>
       </div>
       <div class="col">
-        <h2 class="mt-4">Post Details:</h2>
+        <h2 class="mb-4">Post Details:</h2>
         <div class="card">
           <div class="card-body">
-            <p class="card-text"> <strong>{{ post.content }}</strong></p>
+            <p class="card-text"><strong>{{ post.content }}</strong></p>
             {% if post.image %}
             <img src="{{ post.image.url }}" alt="Post about {{ aok.name }}" class="img-fluid mb-4">
             {% endif %}
-            <p class="card-text"><strong> Author:</strong> {{ post.user_profile.user }}</p>
+            <p class="card-text"><strong>Author</strong> {{ post.user_profile.user }}</p>
             {% if request.user == post.user_profile.user %}
             <a href="{% url 'edit_post' post.id %}" class="btn btn-primary">Edit Post</a>
             <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete Post</a>
