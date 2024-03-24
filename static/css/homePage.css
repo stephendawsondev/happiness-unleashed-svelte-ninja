@@ -34,6 +34,12 @@ body {
   font-weight: 600;
 }
 
+/* Index page */
+.act-card {
+  max-width: 300px;
+  height: 400px;
+}
+
 /* Footer */
 footer {
   background-color: #f2e1c3;
