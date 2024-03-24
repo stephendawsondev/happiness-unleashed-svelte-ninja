@@ -87,6 +87,7 @@
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                 <a href="{% url 'admin:index' %}" class="dropdown-item py-3">Admin Panel</a>
+                <a href="{% url 'acts_list' %}" class="dropdown-item py-3">Acts</a>
                 {% endif %}
                 <a href="{% url 'profile' request.user.userprofile.id %}" class="dropdown-item py-3">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item py-3">Logout</a>
