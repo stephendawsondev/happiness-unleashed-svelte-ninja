@@ -13,6 +13,7 @@ psycopg2==2.9.9
 PyJWT==2.8.0
 python3-openid==3.2.0
 requests-oauthlib==1.4.0
+six==1.16.0
 setuptools==69.2.0
 sqlparse==0.4.4
 tzdata==2024.1
