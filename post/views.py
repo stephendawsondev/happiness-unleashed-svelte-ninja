@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.core.paginator import Paginator
 import cloudinary.uploader
 import cloudinary
@@ -54,6 +57,28 @@ def add_post(request, aok_pk):
             request, 'You can only add a post for a completed act of kindness.')
         return redirect('post_list')
 
+    def _send_confirmation_email(act, post):
+        """Send the user a confirmation email"""
+        user_email = request.user.email
+
+        subject = render_to_string(
+            'post/confirmation_emails/confirmation_email_subject.txt',
+            {'act': act})
+        body = render_to_string(
+            'post/confirmation_emails/confirmation_email_body.txt',
+            {'act': act, 'post': post, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [user_email]
+        )
+
+        messages.success(request, f'Act submitted for review! \
+            You will receive an email to {user_email} confirming \
+            your submission.')
+
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -67,6 +92,8 @@ def add_post(request, aok_pk):
                 post.image = upload['url']
 
             post.save()
+
+            _send_confirmation_email(aok, post)
             messages.success(request, 'Successfully added post!')
             return redirect('profile', pk=user_profile.pk)
         else:

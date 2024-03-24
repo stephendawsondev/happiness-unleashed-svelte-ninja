@@ -1,0 +1,22 @@
+Hello!
+
+Thank you for sharing your kindness today and for telling everyone about it!
+
+Here's your post and its associated act of kindness:
+
+Act of Kindess name: {{ act.name }}
+Act of Kindess description: {{ act.description }}
+{% if act.image %}
+Act of Kindess image: https://res.cloudinary.com/dyoueyepq/image/upload/v1711320218/{{ act.image }}.jpg
+{% endif %}
+_____________
+
+Your post text: {{ post.content }}
+{% if post.image %}
+Your post image: {{ post.image }}
+{% endif %}
+
+Keep sharing other good acts and encourage others to do the same!
+
+Be happy,
+Happiness Unleashed Team
