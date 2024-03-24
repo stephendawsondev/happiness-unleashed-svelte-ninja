@@ -52,7 +52,7 @@
 
   {% comment %} Header {% endcomment %}
   <header>
-    <nav class="navbar-wrapper navbar navbar-expand-md">
+    <nav id="nav=wrapper" class="navbar navbar-expand-md">
       <div class="container-fluid navContainer">
         <a class="navbar-brand" href="/">
           <img class="logo" src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711281148/kindness/HULogo5_ekqr0j.png" aria-label="Happiness Unleashed Logo">
@@ -74,9 +74,9 @@
                 <a href="{% url 'profile' request.user.userprofile.id %}"
                   class="user-name nav-link dropdown-toggle" id="navbarDropdownAccount" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="username">{{ request.user.username }}</span>
+                  <span class="user-name rounded-circle">{{ request.user.username }}</span>
                   <img src="{{ request.user.userprofile.profile_image.url }}" alt="{{ request.user.username }}"
-                    class="user-image">
+                    class="user-image rounded-circle">
                 </a>
                 {% else %}
                   <a class="nav-link dropdown-toggle" id="navbarDropdownAccount" role="button"
@@ -96,7 +96,6 @@
                 {% endif %}
               </ul>
             </li>
-
           </ul>
         </div>
       </div>
