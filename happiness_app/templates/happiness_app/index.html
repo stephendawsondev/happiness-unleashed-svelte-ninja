@@ -49,7 +49,10 @@
           {% if act.image %}
           <img src="{{ act.image }}" class="card-img-top" alt="{{ act.name }}">
           {% else %}
-          <img src="../../../static/images/act-of-kindness-no-image.jpg" class="card-img-top" alt="{{ act.name }}">
+          <img
+            src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711279525/act-of-kindness-no-image_okxwg9.jpg"
+            class="card-img-top" alt="{{ act.name }}"
+          >
           {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ act.name }}</h5>
@@ -57,9 +60,9 @@
             <!-- <a href="{% url 'act_detail' act.id %}" class="btn btn-primary">Choose this act of kindness</a> -->
           </div>
           <div class="act-buttons align-items-end">
-            <button type="button" class="btn btn-outline-danger mr-2">
+            <!-- <button type="button" class="btn btn-outline-danger mr-2">
               <i class="fas fa-heart"></i>
-            </button>
+            </button> -->
             <button type="button" class="btn btn-outline-success mr-2">
               <i class="fas fa-check"></i> Done
             </button>
