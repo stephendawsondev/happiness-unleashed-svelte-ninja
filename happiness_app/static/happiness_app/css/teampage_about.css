@@ -1,37 +1,35 @@
 /* css styles for team page and about section */
 
 
-
-
 .container {
-    background-color: aqua;
-    padding: 0.3rem;
-    margin: 0.1 rem;
-}
-
-
-.card {
-    background-color: seagreen;
-    padding: 3px;
-}
-
-h1 {
-    font-weight: bold;
-}
-
-h5 {
-
-}
-
-
-.to_the_top {
     
 }
 
 
-/* responsvie desing */ 
+.card {
+    background-color: #f2e1c3;
+    padding: 3px;
+}
+
+
+/* is not working. buttons are supposed to be blue! */
+.btn btn-primary {
+    background-color: #3bb8ff;
+}
+
+
+.to_the_top {
+    text-align: center;
+    margin: auto;
+}
+
+
+/* responsvie design */ 
 @media screen and (min-width: 768px) {
     #acts-of-kindness-slider .carousel-inner {
       max-height: 400px;
     }
+
+    .to_the_top {
+        display: none;
   }
