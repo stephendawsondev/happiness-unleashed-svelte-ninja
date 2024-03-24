@@ -26,6 +26,7 @@
       <li>
         <h2><a href="{% url 'post_detail' post.id %}">{{ post.aok.name }}</a></h2>
         <p>{{ post.content|truncatewords:20 }}</p>
+        <p>Author: {{post.user_profile.user}}</p>
         {% if post.image %}
         <img src="{{ post.image.url }}" alt="{{ post.name }}" style="max-width: 100px; max-height: 100px;">
         {% endif %}
@@ -47,6 +48,24 @@
     <p>No posts yet!</p>
     {% endif %}
   </div>
+  <!-- Pagination -->
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+</div>
 </section>
 {% endblock %}
 
