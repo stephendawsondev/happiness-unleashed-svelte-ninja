@@ -27,10 +27,8 @@
       <div class="carousel-inner">
         {% for act in acts %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>{{ act.title }}</h5>
-            <p>{{ act.description }}</p>
+<!--add banner her-->
           </div>
         </div>
         {% endfor %}
@@ -47,12 +45,13 @@
   </div>
 </section>
 <section class="pb-5" id="acts-of-kindness-cards">
+  <h1 class="text-center negative-margin">Choose a Random Act of Kindness!</h1>
   <div class="container py-5 overflow-hidden">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for act in random_acts %}
         <div class="swiper-slide">
-          <div class="card mb-3" style="max-width: 300px; height: 400px;">
+          <div class="card mb-3" style="max-width: 300px; height: 520px;">
             {% if act.image %}
             <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
             {% else %}
@@ -60,11 +59,10 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ act.name }}</h5>
-              <p class="card-text">{{ act.description }}</p>
+              <p class="card-text">{{ act.description|truncatewords:15 }}}</p>
             </div>
-            <div class="act-buttons align-items-end">
-              <button type="button" class="btn btn-outline-success mr-2">Done</button>
-              <a href={% url 'act_detail' act.id %} class="btn btn-outline-primary">View</a>
+            <div class="d-grid gap-2 px-3 pb-3">
+              <a href={% url 'act_detail' act.id %} <button class="btn btn-primary" type="button">View</button></a>
             </div>
           </div>
         </div>
