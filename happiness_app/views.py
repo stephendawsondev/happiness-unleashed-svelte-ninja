@@ -10,7 +10,7 @@ def index(request):
     """A view to return the homepage."""
 
     acts = ActsOfKindness.objects.all().filter(
-        approved=True)[:5]
+        approved=True)[:200]
     random_acts = random.sample(list(acts), 4) if len(acts) > 4 else acts
 
     context = {
