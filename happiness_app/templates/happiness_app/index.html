@@ -14,6 +14,12 @@
 
 {% block content %}
 <section class="py-5" id="acts-of-kindness-slider">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Make Today Kindness-Filled!</h1>
+      <p class="lead">Every Gesture Counts: Let's Fill Today with Acts of Kindness</p>
+    </div>
+  </div>
   <div class="container">
     <div id="carouselIndicators" class="carousel slide carousel-fade">
       <div class="carousel-indicators">
@@ -26,10 +32,8 @@
       <div class="carousel-inner">
         {% for act in acts %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <img src="{{ act.image.url }}" class="d-block w-100" alt="{{ act.name }}" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>{{ act.title }}</h5>
-            <p>{{ act.description }}</p>
+
           </div>
         </div>
         {% endfor %}
@@ -46,12 +50,13 @@
   </div>
 </section>
 <section class="pb-5" id="acts-of-kindness-cards">
+  <h3 class="text-left negative-margin">Choose a Random Act of Kindness!</h3>
   <div class="container py-5 overflow-hidden">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for act in random_acts %}
         <div class="swiper-slide">
-          <div class="card mb-3" style="max-width: 300px; height: 400px;">
+          <div class="card mb-3" style="max-width: 300px; height: 520px;">
             {% if act.image %}
             <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
             {% else %}
@@ -59,11 +64,10 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ act.name }}</h5>
-              <p class="card-text">{{ act.description }}</p>
+              <p class="card-text">{{ act.description|truncatewords:15 }}}</p>
             </div>
-            <div class="act-buttons align-items-end">
-              <button type="button" class="btn btn-outline-success mr-2">Done</button>
-              <a href={% url 'act_detail' act.id %} class="btn btn-outline-primary">View</a>
+            <div class="d-grid gap-2 px-3 pb-3">
+              <a href={% url 'act_detail' act.id %} <button class="btn btn-primary" type="button">View</button></a>
             </div>
           </div>
         </div>
