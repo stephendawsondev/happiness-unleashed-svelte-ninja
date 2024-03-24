@@ -25,11 +25,15 @@
     <img src="{{ post.image.url }}" alt="Post about {{ aok.name }}">
     {% endif %}
 
+    <p>Author: {{post.user_profile.user}}</p>
+
     {% if request.user == post.user_profile.user %}
     <a href="{% url 'edit_post' post.id %}">Edit post</a>
     <a class="text-danger" href="{% url 'delete_post' post.id %}">Delete post</a>
     {% endif %}
   </div>
 </section>
+
+
 
 {% endblock %}

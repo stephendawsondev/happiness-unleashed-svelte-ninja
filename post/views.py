@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
 import cloudinary.uploader
 import cloudinary
 
 from profiles.models import UserProfile
 from acts_of_kindness.models import ActsOfKindness, UserActStatus
-from .models import Post
+from .models import Post, Like
 from .forms import PostForm
 
 
@@ -26,10 +27,16 @@ def post_list(request):
     """Display a list of all posts."""
     posts = Post.objects.all()
 
-    for post in posts:
-        post.aok = post.act_of_kindness
+    paginator = Paginator(posts, 9) # adjustment for number of pages
 
-    return render(request, 'post/post_list.html', {'posts': posts})
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'post/post_list.html', {
+        'posts': page_obj,
+        'page_obj': page_obj,
+    })
+
 
 
 @login_required
@@ -60,7 +67,7 @@ def add_post(request, aok_pk):
 
             post.save()
             messages.success(request, 'Successfully added post!')
-            return redirect('profile')
+            return redirect('profile', pk=user_profile.pk)
         else:
             messages.error(request, 'Failed to add post. Please ensure the form is valid.')
     else:
@@ -119,3 +126,19 @@ def delete_post(request, pk):
     post.delete()
     messages.success(request, 'Post deleted successfully')
     return redirect('profile')
+
+
+@login_required
+def like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if post.user_profile == request.user.userprofile:
+        messages.error(request, "You cannot like your own post.")
+    else:
+        like, created = Like.objects.get_or_create(post=post, user_profile=request.user.userprofile)
+        if created:
+            messages.success(request, "You have liked this post.")
+        else:
+            messages.error(request, "You have already liked this post.")
+
+    return redirect('post_list')
