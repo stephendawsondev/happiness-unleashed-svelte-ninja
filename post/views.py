@@ -79,9 +79,9 @@ def add_post(request, aok_pk):
             messages.error(
                 request, 'Failed to send confirmation email. Please ensure your email is correct.', e)
 
-        messages.success(request, f'Act submitted for review! \
+        messages.success(request, f'Post submitted! \
             You will receive an email to {user_email} confirming \
-            your submission.')
+            your post details.')
 
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
