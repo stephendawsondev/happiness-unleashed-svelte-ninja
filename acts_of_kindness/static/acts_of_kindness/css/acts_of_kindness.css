@@ -2,6 +2,13 @@
   width: 100%;
 }
 
+.img-act-detail {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 576px) {
   #acts-list-section .card {
     width: calc(50% - 16px);
