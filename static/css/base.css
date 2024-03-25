@@ -71,6 +71,10 @@ p{
   max-width: 200px;
 }
 
+.post-img{
+  max-width: 400px;
+}
+
 /* Footer */
 footer {
   background-color: #f2e1c3;
