@@ -1,10 +1,12 @@
 
 <br>
-<h1 align="center"><strong> Unleash Happiness: App Inspiring you to do more Good </strong></h1>
 
-<img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711376637/pyd0uu3jmz4sc8flkgfh.png" alt="HackathonHappy" width="800" align="center"/>
+<div align="center">
+    <h1 align="center"><strong> Happiness Unleashed</strong></h1>
+    <p align="center"> The app inspiring you to do more good </p>
+    <img align="center" src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711376637/pyd0uu3jmz4sc8flkgfh.png" alt="HackathonHappy" width="800" />  
+</div>
 
-# SUBMISSION
 
 ## Deployment
 
