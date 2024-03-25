@@ -13,22 +13,25 @@
 {% endblock core_js %}
 
 {% block content %}
-<section class="pt-5" id="acts-of-kindness-slider">
+<section class="py-4" id="acts-of-kindness-slider">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container py-5 bg-primary text-white rounded">
-      <h1 class="display-4 hero-text text-light">Make Today Kindness-Filled!</h1>
-      <p class="lead">Every Gesture Counts: Let's Fill Today with Acts of Kindness</p>
+    <div class="container hero-container py-2 bg-primary text-white rounded">
+      <div class="mx-2">
+        <h1 class="display-4 hero-text text-light">Make Today Kindness-Filled!</h1>
+        <p class="lead text-white">Every Gesture Counts: Let's Fill Today with Acts of Kindness</p>
+      </div>
+      <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711329116/ukhptvrcqiafidh29x27.png" class="hero-img" alt="Image of hand holding a kind note">
     </div>
   </div>
 </section>
 <section class="pb-5" id="acts-of-kindness-cards">
-  <div class="container py-5 overflow-hidden">
+  <div class="container py-3 overflow-hidden">
     <h3 class="text-left">Choose a Random Act of Kindness!</h3>
-    <div class="swiper-container mt-5">
+    <div class="swiper-container mt-2">
       <div class="swiper-wrapper">
         {% for act in random_acts %}
         <div class="swiper-slide">
-          <div class="card mb-3 ms-2" style="min-height: 520px;">
+          <div class="card mb-3" style="max-width: 300px; height: 520px;">
             {% if act.image %}
             <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
             {% else %}
