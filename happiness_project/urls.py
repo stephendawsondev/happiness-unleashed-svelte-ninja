@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from happiness_app import views as index_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_views.index, name='index'),
@@ -29,7 +30,7 @@ urlpatterns = [
     path('acts_of_kindness/', include('acts_of_kindness.urls')),
     path('profile/', include('profiles.urls')),
     path('posts/', include('post.urls')),
-
-]
+    ]
 
 handler404 = 'happiness_project.views.handler404'
+handler500 = 'happiness_project.views.custom_500'
