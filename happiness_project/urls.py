@@ -31,3 +31,5 @@ urlpatterns = [
     path('posts/', include('post.urls')),
 
 ]
+
+handler404 = 'happiness_project.views.handler404'
