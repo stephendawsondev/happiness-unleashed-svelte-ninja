@@ -127,5 +127,6 @@ def complete_and_share_act(request, act_id):
     if request.method == "POST" and 'share' in request.POST:
         return redirect('add_post', aok_pk=act_id)
     else:
-        messages.success(request, 'Act of kindness marked as completed.')
+        messages.success(
+            request, 'Act of kindness marked as completed.', extra_tags='act_completed')
         return redirect('profile', pk=user_profile.pk)
