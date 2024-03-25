@@ -1,25 +1,28 @@
 
 <br>
-<h1 align="center"><strong> :smiley: World Happiness Day! :smiley: </strong>
-
-</h1>
-
+<h1 align="center"><strong> :smiley: World Happiness Day! :smiley: </strong></h1>
 
 <img src="https://res.cloudinary.com/djdefbnij/image/upload/v1709637871/March_hackathon_banner_krwvza.jpg" alt="HackathonHappy" width="1200"/>
 
 # SUBMISSION
+
 ## Deployment
 
-The project is deployed and can be accessed at https://dashboard.heroku.com/apps/happiness-unleashed/deploy/github
+The project is deployed and can be accessed at https://happiness-unleashed-b388dd1f8f63.herokuapp.com/
+
 ## Criteria
 In this section, we will briefly discuss how our team addressed the applicable criteria:
-
 -  CSS framework Bootstrap was used to built our user-friendly design
--  GitHub Project includes user stories and a detailed README.md 
--  We came up with a application to remind, engage and motivate the users to act kind in their daily live
+-  GitHub Project includes user stories and a detailed README.md; https://github.com/users/HMuraja/projects/7/views/1
+-  We came up with a application to remind, engage and motivate the user to act kind in their daily live
 -  Project demonstrates responsiveness, accessibility, and thorough testing
--  Beyond standard requirements these are our more innovative features/functionalities
+-  Beyond standard requirements these are our more innovative features/functionalities: create user accounts, create individual user posts, create own acts of kindness  
 -  As a team we worked together in on respository, splitted task according to interest and skills
+    - Backend focus: Stephen, Ann
+    - Frontend focus: Felipe, Claudio
+    - content creation, images and documentation: Soundarya, Florian
+    - Scrum Master: Hilla
+
 
 # ABOUT SUBMISSION
 ## Intro
@@ -31,35 +34,60 @@ We wanted to allow our users to spread a sense of happiness by using our happine
 
 Together, we can make the world a brighter, happier place where each of us has the power to unleash waves of happiness and countless smiles. 
 
+
 ## Goal
 Our app aims to make kindness a daily habit by offering simple challenges that inspire users to turn their good intentions into actions.
 
 - ➡️ Problem: In a world where kindness is plentiful but easily overlooked in the chaos of everyday life, our app provides a platform for users to share their acts of kindness, sparking a chain reaction of positivity.
-- ➡️ Objective: With this application, we aim to encourage a culture of kindness that extends beyond individual acts. We want these acts of kindness to become a natural part of people's lives, enriching their day-to-day experiences. By promoting kindness, we believe that people will not only feel happier but also cherish the moments when they are able to make a positive impact on others.
-- ➡️ Target Audience:Our target audience includes individuals who value kindness and want to incorporate more of it into their daily lives and who also believes in the power of small acts of kindness to make a difference in the world. Our audience may also include those who are interested in personal development and self-improvement, as practicing kindness can have a positive impact on mental and emotional well-being.
+- ➡️ Objective: We provide an application that fosters and simplifies kindness and happiness and can be integrated easily within our daily rountine.
+- ➡️ Target Audience: People who are willing to include more happiness and kindness in their world by using smart applications.
 - ➡️ Benefits: By promoting kindness, our app can create a more compassionate and connected community, where individuals feel happier and more fulfilled.
 
 ## Tech
 "Happiness Unleashed" is crafted using a blend of powerful technologies including Django for robust backend functionality, Bootstrap for sleek and responsive frontend design, and a mix of HTML, CSS, Python, and JavaScript to deliver a seamless and joyful user experience.
 
-### Structure:
+Image storage: Cloudinary
+Technologies: HTML, CSS, Python, [Django]( https://github.com/django/django), [Bootstrap](https://getbootstrap.com/docs/5.3/layout/containers/)
+Deployment Platform: Heroku 
+
+## Structure:
+The site's structure is visually represented within the navigation bar. It encompasses various sections, starting with the "Home" landing page, which actively encourages user engagement by proposing four distinct acts of kindness.
+
+Within the "Posts" section, users can view posts to sustain their motivation. The "Our Team" segment showcases the developer team behind the platform. In the "About" section, users find a detailed explanation of the application's purpose and the developers' underlying motivations.
+
+Lastly, the "Account" section facilitates user authentication, providing options for logging in or signing up. Once authenticated, users gain access to a personalized view, where they can track their own completed acts of kindness.
+
+
 <img src="images_README/app_structure.PNG" alt="image shows structure of the app. Landing page, login page, sign up page, profiles and more" width="600">
 
-### Wireframes
 
+The structure of models form a database perspective is shown in the following:
+<img src="images_README/model_structure.PNG" alt="image shows structure of database." width="600">
+
+
+## Wireframes
+Here are shwon a few wireframes we used to set up the subpages. During the project slight adjustments has been made.
 
 <img src="images_README/wireframe.PNG" alt="Image shows wireframe" width="200">
 <img src="images_README/wireframe1.PNG" alt="Image shows wireframe" width="400">
 <img src="images_README/wireframe2.PNG" alt="Image shows wireframe" width="200">
 
 
+## Testing
+
+- user interface/ experience testing
+- url testing, internal, external
+- test form submit
+- content 
+- responsiveness
+- accessability
+- images have alt types, aria labels
+
 
 ## Credits
-In the credits section, we provide information about the sources used
-TBD
-
-- image source
-- favicon generator
-- templates (Django, Bootstrap)
+In the credits section, we provide information about the sources we have used during the project:
 - canva
-- freepik
+- Am I Responsive
+- image source: https://unsplash.com/, https://www.freepik.com/
+- favicon generator: https://favicon.io/
+- templates/ frameworks i.e. https://app.box.com/s/r356kxmp3yiwa96evgmpera7il9t4xyg

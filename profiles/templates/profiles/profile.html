@@ -17,11 +17,9 @@
   <div class="row justify-content-center text-center">
     <!-- Profile section -->
     <div class="col-12 col-lg-6 mb-5 pl-lg-0 ustify-content-center">
-
-      <h2 class="h2 mb-3 text-center">My Profile</h2>
-
       <!-- Profile image -->
       <div class="text-center">
+        <h2 class="h2 mb-3">My Profile</h2>
         {% if profile.profile_image %}
         <img src="{{ profile.profile_image.url }}" alt="Profile image"
           class="profile-image mb-3 rounded-circle img-fluid">
@@ -57,11 +55,8 @@
               image</label>
           </div>
           {% endif %}
-
         </div>
         <h3 class="h3 my-4">Personal Details</h3>
-
-        <!-- Manually render each field in the user form -->
         <div class="form-row">
           <div class="form-group col-md-12 mb-0">
             {{ user_form.first_name|as_crispy_field }}
@@ -81,7 +76,7 @@
             {% endif %}
           </div>
         </div>
-        
+
         <div class="form-row">
           <div class="form-group col-md-12 mb-0">
             {{ user_form.email|as_crispy_field }}
@@ -102,48 +97,46 @@
           {% endif %}
         </div>
         {% if request.user == user %}
-        <div class="float-right">
-          <button type="submit" class="btn btn-outline-success ml-1">Update
+        <div class="float-right d-flex w-100 justify-content-end">
+          <button type="submit" class="btn btn-success">Update
             details</button>
+          <!-- Delete account -->
+          <div class="text-center">
+            {% if request.user == user %}
+            <a href="{% url 'account_delete' %}"
+              class="btn btn-danger text-white delete-link profile-delete-link ms-2">Delete
+              account</a>
+            {% endif %}
+            {% endif %}
+          </div>
         </div>
         {% endif %}
       </form>
-
+    </div>
+    <div class="col-12 col-lg-6">
       <!-- User acts of kindness -->
-      <div class="pt-4">
-        <h2>My Completed Acts of Kindness</h2>
-        <div class="row">
-          {% for user_act_status in completed_acts %}
-          <div class="col-md-12 mb-4">
-            <div class="card w-100">
-              <div class="card-body act-body-card">
-                <h5 class="card-title">{{ user_act_status.act_of_kindness.name }}</h5>
-                <p class="card-text">{{ user_act_status.act_of_kindness.description }}</p>
-                <p>Thank you for completing an act of kindness! Would you like to
-                  share a post about it, to inspire others to also do the act of kindness?</p>
-                <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-outline-primary">Share Your Act</a>
-              </div>
+      <h2>My Completed Acts of Kindness</h2>
+      <div class="row py-3">
+        {% for user_act_status in completed_acts %}
+        <div class="col-md-12 mb-4">
+          <div class="card w-100">
+            <div class="card-body act-body-card">
+              <h5 class="card-title">{{ user_act_status.act_of_kindness.name }}</h5>
+              <p class="card-text">{{ user_act_status.act_of_kindness.description }}</p>
+              <p>Thank you for completing an act of kindness! Would you like to
+                share a post about it, to inspire others to also do the act of kindness?</p>
+              <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-outline-primary">Share
+                Your Act</a>
             </div>
           </div>
-          {% empty %}
-          <div class="col">
-            <p>You have not completed any acts of kindness yet.</p>
-          </div>
-          {% endfor %}
         </div>
+        {% empty %}
+        <div class="col">
+          <p>You have not completed any acts of kindness yet.</p>
+        </div>
+        {% endfor %}
       </div>
-
     </div>
-  </div>
-
-  <!-- Delete account -->
-  <div class="text-center">
-  {% if request.user == user %}
-      <a href="{% url 'account_delete' %}"
-        class="btn btn-danger text-white delete-link float-right profile-delete-link font-bold">Delete
-        account</a>
-      {% endif %}
-      {% endif %}
   </div>
 </section>
 {% if request.user == user %}
