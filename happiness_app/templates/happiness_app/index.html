@@ -23,34 +23,6 @@
       <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711329116/ukhptvrcqiafidh29x27.png" class="hero-img" alt="Image of hand holding a kind note">
     </div>
   </div>
-  <div class="container">
-    <div id="carouselIndicators" class="carousel slide carousel-fade">
-      <div class="carousel-indicators">
-        {% for act in acts %}
-        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="{{ forloop.counter0 }}"
-          {% if forloop.first %}class="active" aria-current="true" {% endif %}
-          aria-label="Slide {{ forloop.counter }}"></button>
-        {% endfor %}
-      </div>
-      <div class="carousel-inner">
-        {% for act in acts %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <div class="carousel-caption d-none d-md-block">
-
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
 </section>
 <section class="pb-5" id="acts-of-kindness-cards">
   <div class="container py-3 overflow-hidden">
@@ -59,7 +31,7 @@
       <div class="swiper-wrapper">
         {% for act in random_acts %}
         <div class="swiper-slide">
-          <div class="card mb-3" style="max-width: 300px; height: 520px;">
+          <div class="card mb-3 ms-2" style="min-height: 520px;">
             {% if act.image %}
             <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}">
             {% else %}
@@ -67,7 +39,7 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ act.name }}</h5>
-              <p class="card-text">{{ act.description|truncatewords:15 }}}</p>
+              <p class="card-text">{{ act.description|truncatewords:15 }}</p>
             </div>
             <div class="d-grid gap-2 px-3 pb-3">
               <a href={% url 'act_detail' act.id %} <button class="btn btn-primary" type="button">View</button></a>

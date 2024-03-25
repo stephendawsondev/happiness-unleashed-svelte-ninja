@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib import messages
+from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from .models import ActsOfKindness, UserProfile, UserActStatus
 from post.models import Post
@@ -30,12 +33,36 @@ def add_act(request):
     if not request.user.is_authenticated:
         messages.error(request, 'Sorry, only logged in users can do that.')
         return redirect(reverse('index'))
+
+    def _send_confirmation_email(act):
+        """Send the user a confirmation email"""
+        user_email = request.user.email
+
+        subject = render_to_string(
+            'acts_of_kindness/confirmation_emails/confirmation_email_subject.txt',
+            {'act': act})
+        body = render_to_string(
+            'acts_of_kindness/confirmation_emails/confirmation_email_body.txt',
+            {'act': act, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [user_email]
+        )
+
+        messages.success(request, f'Act submitted for review! \
+            You will receive an email to {user_email} confirming \
+            your submission.')
+
     if request.method == 'POST':
         form = ActsOfKindnessForm(request.POST, request.FILES)
         if form.is_valid():
             act = form.save()
             messages.success(
                 request, 'Successfully added act of kindness! Admin will approve and publish the act as soon as possible')
+            _send_confirmation_email(act)
             return redirect(reverse('act_detail', args=[act.id]))
         else:
             messages.error(
@@ -102,4 +129,3 @@ def complete_and_share_act(request, act_id):
     else:
         messages.success(request, 'Act of kindness marked as completed.')
         return redirect('profile', pk=user_profile.pk)
-
