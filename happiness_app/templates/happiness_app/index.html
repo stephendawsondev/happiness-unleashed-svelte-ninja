@@ -36,7 +36,7 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ act.name }}</h5>
-              <p class="card-text">{{ act.description|truncatewords:15 }}</p>
+              <p class="card-text">{{ act.description|truncatewords:12 }}</p>
             </div>
             <div class="d-grid gap-2 px-3 pb-3">
               <a href={% url 'act_detail' act.id %} <button class="btn btn-primary" type="button">View</button></a>
