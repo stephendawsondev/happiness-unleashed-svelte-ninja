@@ -17,8 +17,9 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="username" class="--bs-pink1">{% trans "Username" %}</label>
-                    <input type="text" name="username" id="username" class="form-control mb-3"
+                    <input type="username" name="username" id="username" class="form-control"
                         placeholder="{% trans 'Username' %}" required>
+                    <small class="text-secondary">*Choose your username carefully, as it cannot be changed later on.</small>
                 </div>
                 {% if form.username.errors %}
                 <div class="alert alert-danger mt-1 p-1">

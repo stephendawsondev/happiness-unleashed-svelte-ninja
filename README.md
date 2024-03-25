@@ -1,10 +1,12 @@
 
 <br>
-<h1 align="center"><strong> :smiley: World Happiness Day! :smiley: </strong></h1>
 
-<img src="https://res.cloudinary.com/djdefbnij/image/upload/v1709637871/March_hackathon_banner_krwvza.jpg" alt="HackathonHappy" width="1200"/>
+<div align="center">
+    <h1 align="center"><strong> Happiness Unleashed</strong></h1>
+    <p align="center"> The app inspiring you to do more good </p>
+    <img align="center" src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711376637/pyd0uu3jmz4sc8flkgfh.png" alt="HackathonHappy" width="800" />  
+</div>
 
-# SUBMISSION
 
 ## Deployment
 
