@@ -60,8 +60,6 @@ def add_act(request):
         form = ActsOfKindnessForm(request.POST, request.FILES)
         if form.is_valid():
             act = form.save()
-            messages.success(
-                request, 'Successfully added act of kindness! Admin will approve and publish the act as soon as possible')
             _send_confirmation_email(act)
             return redirect(reverse('act_detail', args=[act.id]))
         else:
