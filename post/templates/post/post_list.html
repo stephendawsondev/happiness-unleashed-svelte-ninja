@@ -7,9 +7,14 @@
 {% endblock %}
 
 {% block content %}
-<section class="py-5" id="post-list-section">
-  <div class="container my-4">
-    <h1>User-submitted posts</h1>
+<section class="py-4" id="post-list-section">
+  <div class="container mb-1">
+
+    <div class="px-1 border-bottom border-primary border-1">
+      <h1 >User-submitted posts</h1>
+      <p class="text-secondary"> Would you like share how you have shared happiness recently? Login, select a kindness and post it to inspire others!</p>
+    </div>
+
     {% if posts %}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3" data-masonry='{"percentPosition": true}'>
       {% for post in posts %}
