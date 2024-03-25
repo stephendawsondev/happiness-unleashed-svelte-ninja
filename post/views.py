@@ -68,12 +68,16 @@ def add_post(request, aok_pk):
             'post/confirmation_emails/confirmation_email_body.txt',
             {'act': act, 'post': post, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [user_email]
-        )
+        try:
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [user_email]
+            )
+        except Exception as e:
+            messages.error(
+                request, 'Failed to send confirmation email. Please ensure your email is correct.', e)
 
         messages.success(request, f'Act submitted for review! \
             You will receive an email to {user_email} confirming \
@@ -157,7 +161,7 @@ def delete_post(request, pk):
         return redirect('post_detail', pk=post.pk)
     post.delete()
     messages.success(request, 'Post deleted successfully')
-    return redirect('profile')
+    return redirect('post_list')
 
 
 @login_required

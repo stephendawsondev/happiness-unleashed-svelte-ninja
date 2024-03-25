@@ -26,7 +26,8 @@ def profile(request, pk):
         user_form = None
         form = None
 
-    completed_acts = UserActStatus.objects.filter(profile=profile, completed=True, act_of_kindness__isnull=False)
+    completed_acts = UserActStatus.objects.filter(
+        profile=profile, completed=True, act_of_kindness__isnull=False)
 
     if is_profile_owner and request.method == 'POST':
         user_form = CustomUserEditForm(request.POST, instance=request.user)
@@ -46,7 +47,8 @@ def profile(request, pk):
             messages.success(request, 'Profile updated successfully')
             return redirect('profile', pk=pk)
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
 
     context = {
         'is_profile_owner': is_profile_owner,
@@ -57,12 +59,11 @@ def profile(request, pk):
     }
     return render(request, 'profiles/profile.html', context)
 
-
 @login_required
 def account_delete(request):
     """ Deletes the profile's account and logs them out."""
     if request.method == 'POST':
-        profile = request.profile
+        profile = request.user.userprofile
         profile.delete()
         logout(request)
         messages.success(
