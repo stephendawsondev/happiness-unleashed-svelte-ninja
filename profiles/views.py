@@ -59,12 +59,13 @@ def profile(request, pk):
     }
     return render(request, 'profiles/profile.html', context)
 
+
 @login_required
 def account_delete(request):
     """ Deletes the profile's account and logs them out."""
     if request.method == 'POST':
-        profile = request.user.userprofile
-        profile.delete()
+        user = request.user
+        user.delete()
         logout(request)
         messages.success(
             request, 'Your account has been successfully deleted.')
