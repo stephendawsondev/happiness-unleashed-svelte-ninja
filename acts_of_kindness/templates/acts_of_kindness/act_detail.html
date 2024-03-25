@@ -22,7 +22,10 @@
     <p class="text-center">{{ act.description }}</p>
 
     {% if act.image %}
-    <img src="{{ act.image.url }}" class="img-fluid mx-auto d-block" alt="{{ act.name }}">
+
+        <img src="{{ act.image.url }}" class="img-act-detail img-fluid mx-auto d-block" alt="{{ act.name }}">
+
+
     {% endif %}
 
     <div class="text-center mt-4">
