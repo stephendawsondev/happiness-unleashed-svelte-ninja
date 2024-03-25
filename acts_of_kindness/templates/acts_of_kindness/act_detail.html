@@ -34,7 +34,11 @@
             <button type="submit" class="btn btn-lg btn-primary">{% trans "Mark as Completed" %}</button>
         </form>
     </div>
-
+    {% if request.user.is_authenticated %}
+    <div class="text-center mt-4">
+        <a href="{% url 'add_act' %}" class="btn btn-success">{% trans "Add another Act of Kindness" %}</a>
+    </div>
+    {% endif %}
     {% if request.user.is_superuser %}
     <div class="text-center mt-4">
         <a href="{% url 'add_act' %}" class="btn btn-success">{% trans "Add another Act of Kindness" %}</a>
