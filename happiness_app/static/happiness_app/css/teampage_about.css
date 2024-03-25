@@ -11,8 +11,10 @@
 }
 
 .card-text {
-  text-align: justify;
+  padding-bottom: 10px;
 }
+
+
 
 /*fix the image size to 180x180*/
 .card-img-top {
