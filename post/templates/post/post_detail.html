@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block extra_title %}My act of kindness - {% endblock %}
+{% block meta_description %}{{ post.content }}{% endblock %}
+{% block extra_meta %}
+{% if post.image %}
+<meta property="og:image" content="{{ post.image.url }}">
+{% elif aok.image %}
+<meta property="og:image" content="{{ aok.image.url }}">
+{% endif %}
+{% endblock %}
 {% block extra_css %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'post/css/post.css' %}">
