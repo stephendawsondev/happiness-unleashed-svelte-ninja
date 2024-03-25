@@ -1,8 +1,8 @@
 
 <br>
-<h1 align="center"><strong> :smiley: World Happiness Day! :smiley: </strong></h1>
+<h1 align="center"><strong> Unleash Happiness: App Inspiring you to do more Good </strong></h1>
 
-<img src="https://res.cloudinary.com/djdefbnij/image/upload/v1709637871/March_hackathon_banner_krwvza.jpg" alt="HackathonHappy" width="1200"/>
+<img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1711376637/pyd0uu3jmz4sc8flkgfh.png" alt="HackathonHappy" width="800" align="center"/>
 
 # SUBMISSION
 
