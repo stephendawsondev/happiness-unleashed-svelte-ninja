@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  django-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - DJANGO_SETTINGS_MODULE=happiness_unleashed.settings
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8001/health/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - db
+    networks:
+      - coolify
+
+  svelte-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - coolify
+
+volumes:
+  postgres_data:
+
+networks:
+  coolify:

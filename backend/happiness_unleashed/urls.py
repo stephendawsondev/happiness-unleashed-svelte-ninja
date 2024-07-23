@@ -1,5 +1,5 @@
 """
-URL configuration for happiness_project project.
+URL configuration for happiness_unleashed project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -30,7 +30,7 @@ urlpatterns = [
     path('acts_of_kindness/', include('acts_of_kindness.urls')),
     path('profile/', include('profiles.urls')),
     path('posts/', include('post.urls')),
-    ]
+]
 
-handler404 = 'happiness_project.views.handler404'
-handler500 = 'happiness_project.views.custom_500'
+handler404 = 'happiness_unleashed.views.handler404'
+handler500 = 'happiness_unleashed.views.custom_500'
