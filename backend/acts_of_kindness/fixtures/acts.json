@@ -1,0 +1,227 @@
+[
+  {
+    "pk": 1,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Compliment a Stranger",
+      "description": "Offer a genuine compliment to someone you encounter. It might brighten their day! For example, compliment the cashier on their cheerful attitude or a passerby on their stylish outfit.",
+      "image": "v1711212936/kindness/xvnqbywbzet8blpgl8jw.png"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Hold the Door Open",
+      "description": "Extend a small courtesy by holding the door for someone behind you, whether it's at a café, office building, or grocery store.",
+      "image": "v1711212936/kindness/x4ysur5rwayhgu4x28uf.png"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Donate Unused Items",
+      "description": "Clear out clutter and donate clothes or items you no longer need to organizations like Goodwill or the Salvation Army, where they can be redistributed to those in need.",
+      "image": "v1711212936/kindness/ayplzhsl8p2k46myidtt.png"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Buy a Coffee",
+      "description": "Surprise someone by buying their coffee in line behind you at your favorite café. It's a simple gesture that can make someone's day.",
+      "image": "v1711212936/kindness/bqgudif5lkfyt3omjvpt.png"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Pick up Litter",
+      "description": "Keep your surroundings clean by picking up litter when you see it, whether it's on the sidewalk, in the park, or near a bus stop.",
+      "image": "v1711212936/kindness/gyimameq7tp9o2d9hefu.png"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Smile and Greet",
+      "description": "Spread positivity by smiling and saying hello to specific individuals you encounter, such as the bus driver, your regular barista, or the shop owner you see often.",
+      "image": "v1711293648/kindness/lrh5jvohr6a2prsjmdvd.png"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Share Knowledge",
+      "description": "Help someone struggling with a concept or subject you're good at, whether it's a classmate, coworker, or friend preparing for an exam or project.",
+      "image": "v1711212936/kindness/nvwx9qdvn4iipggtuixu.png"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Offer to Help",
+      "description": "If you see someone struggling with a heavy load, offer to lend a hand, whether it's carrying groceries, moving furniture, or loading items into a car.",
+      "image": "v1711212936/kindness/bkqgklnqh9c4xp37temf.png"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Leave a Generous Tip",
+      "description": "Leave a generous tip for a waiter or service worker at your favorite restaurant or café as a token of appreciation for their hard work.",
+      "image": "v1711293648/kindness/gmhd3exyfewypdkhvfoq.png"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Listen Actively",
+      "description": "Listen attentively when a friend or family member needs to talk, without interrupting or judging. Offer your support and understanding.",
+      "image": "v1711212936/kindness/uq94ogksjpahw3bx7uml.png"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Write a Thank You Note",
+      "description": "Express gratitude by writing a thank you note to someone who has helped you recently, whether it's a coworker who covered for you or a friend who offered emotional support.",
+      "image": "v1711293648/kindness/klkfrrexo4altxunqu90.png"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Hold a Fundraiser",
+      "description": "Organize a fundraiser for a specific organization or cause you're passionate about, whether it's for a local animal shelter, environmental group, or humanitarian aid organization.",
+      "image": "v1711212936/kindness/fundraiser.png"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Share a Meal",
+      "description": "Invite someone who might be lonely or new to town to share a meal with you, whether it's a coworker, neighbor, or someone you've noticed spending a lot of time alone.",
+      "image": "v1711212936/kindness/xy4f5ecdaaauq8kse5td.png"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Volunteer Your Time",
+      "description": "Dedicate a few hours to volunteer at a local shelter, food bank, or community center, where your time and effort can make a significant impact on those in need.",
+      "image": "v1711293648/kindness/tedjphnggbegpmlagxkb.png"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Offer a Ride",
+      "description": "Offer a ride to someone who might be struggling with transportation, whether it's a coworker without a car or a neighbor who needs a lift to run errands.",
+      "image": "v1711212936/kindness/yc5g9nntzioricn7hxkt.png"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Plant Trees or Flowers",
+      "description": "Beautify your community by planting trees or flowers in public spaces, such as local parks, school grounds, or community gardens.",
+      "image": "v1711212936/kindness/f506lzuwk7xjacuoeviz.png"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Say Please and Thank You",
+      "description": "Practice basic manners by saying please and thank you in all interactions, whether it's with a cashier, coworker, friend, or family member.",
+      "image": "v1711212936/kindness/bnmgb8mk5nwdsmpvcqxk.png"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Offer Encouragement",
+      "description": "Encourage someone who seems down or demotivated with a kind word or gesture, whether it's a classmate stressed about exams or a coworker feeling overwhelmed at work.",
+      "image": "v1711212936/kindness/n07qhkmilp5gqdgjgsky.png"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Share Inspiring Content",
+      "description": "Share inspiring articles or videos on social media to uplift others, whether it's a motivational quote, heartwarming story, or informative piece on a topic you're passionate about.",
+      "image": "v1711212936/kindness/srxlag7ysar4esyzykzs.png"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Give Blood",
+      "description": "Donate blood to help those in need during emergencies by visiting your local Red Cross or blood donation center.",
+      "image": "v1711212936/kindness/leayriwhpcefjlp5xhbb.png"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Send Positive Messages",
+      "description": "Send positive messages or texts to friends or family members to brighten their day, whether it's a funny meme, encouraging quote, or heartfelt message.",
+      "image": "v1711212936/kindness/cpxwj54sshbjpnz3kanj.png"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Support Local Businesses",
+      "description": "Choose to support local businesses whenever possible to help your community thrive, whether it's buying groceries from a neighborhood market or shopping at a boutique owned by locals.",
+      "image": "v1711293648/kindness/f4rxxvblkh5967cg2s0r.png"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Offer to Babysit",
+      "description": "Offer to babysit for a friend or neighbor who could use a break, whether it's to give them a night out or help them run errands without worrying about childcare.",
+      "image": "v1711212936/kindness/fryucsyptdlj4igwehph.png"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Give Complimentary Reviews",
+      "description": "Leave positive reviews for businesses or services you appreciate, whether it's a restaurant, shop, or online service, to help others discover and support them too.",
+      "image": "v1711212936/kindness/ykidqtdgb0vzcvajjh0x.png"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "acts_of_kindness.ActsOfKindness",
+    "fields": {
+      "name": "Practice Empathy",
+      "description": "Put yourself in someone else's shoes and try to understand their perspective without judgment, whether it's a friend going through a tough time or a stranger you encounter in your daily life. Offer support and compassion wherever you can.",
+      "image": "v1711212936/kindness/flzn6vahsgf7fmlhhfrf.png"
+    }
+  }
+]

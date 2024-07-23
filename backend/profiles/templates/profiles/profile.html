@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+{% if 'act_completed' in message.tags %}
+{% include 'includes/rainbow.html' %}
+{% endif %}
+{% endfor %}
+{% endif %}
+<section class="container my-5">
+  <div class="row justify-content-center text-center">
+    <!-- Profile section -->
+    <div class="col-12 col-lg-6 mb-5 pl-lg-0 ustify-content-center">
+      <!-- Profile image -->
+      <div class="text-center">
+        <h2 class="h2 mb-3">My Profile</h2>
+        {% if profile.profile_image %}
+        <img src="{{ profile.profile_image.url }}" alt="Profile image"
+          class="profile-image mb-3 rounded-circle img-fluid">
+        {% else %}
+        <img src="https://res.cloudinary.com/dyoueyepq/image/upload/v1694389081/default_profile_ekdors.jpg"
+          alt="Profile image placeholder" class="profile-image mb-3">
+        {% endif %}
+      </div>
+
+      <!-- Profile details/update -->
+      {% if request.user.is_authenticated and is_profile_owner %}
+      <form action="{% url 'profile' request.user.userprofile.id %}" method="POST" id="profile-update-form"
+        enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label text-secondary" for="{{ form.profile_image.id_for_label }}">Update profile
+            image:</label>
+          <input type="file" class="form-control mt-3" name="{{ form.profile_image.html_name }}"
+            id="{{ form.profile_image.auto_id }}">
+
+          {% if form.profile_image.errors %}
+          <div class="text-danger mt-2">
+            {{ form.profile_image.errors }}
+          </div>
+          {% endif %}
+
+          {% if form.profile_image.value %}
+          <div class="d-flex my-3">
+            <input type="checkbox" class="form-check-input me-2" name="{{ form.profile_image.html_name }}-clear"
+              id="id_{{ form.profile_image.html_name }}-clear" style="height: 1.25rem; width: 1.25rem;">
+            <label class="form-check-label text-secondary fs-6 fw-medium"
+              for="id_{{ form.profile_image.html_name }}-clear">Clear
+              image</label>
+          </div>
+          {% endif %}
+        </div>
+        <h3 class="h3 my-4">Personal Details</h3>
+        <div class="form-row">
+          <div class="form-group col-md-12 mb-0">
+            {{ user_form.first_name|as_crispy_field }}
+            {% if user_form.first_name.errors %}
+            <div class="alert alert-danger mt-2">
+              {{ user_form.first_name.errors|striptags }}
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="form-group col-md-12 mb-0">
+            {{ user_form.last_name|as_crispy_field }}
+            {% if user_form.last_name.errors %}
+            <div class="alert alert-danger mt-2">
+              {{ user_form.last_name.errors|striptags }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12 mb-0">
+            {{ user_form.email|as_crispy_field }}
+            {% if user_form.email.errors %}
+            <div class="alert alert-danger mt-2">
+              {{ user_form.email.errors|striptags }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group col-md-12 mb-0">
+          {{ form.country|as_crispy_field }}
+          {% if form.country.errors %}
+          <div class="alert alert-danger mt-2">
+            {{ form.country.errors|striptags }}
+          </div>
+          {% endif %}
+        </div>
+        {% if request.user == user %}
+        <div class="float-right d-flex w-100 justify-content-end">
+          <button type="submit" class="btn btn-success">Update
+            details</button>
+          <!-- Delete account -->
+          <div class="text-center">
+            {% if request.user == user %}
+            <a href="{% url 'account_delete' %}"
+              class="btn btn-danger text-white delete-link profile-delete-link ms-2">Delete
+              account</a>
+            {% endif %}
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      </form>
+    </div>
+    <div class="col-12 col-lg-6">
+      <!-- User acts of kindness -->
+      <h2>My Completed Acts of Kindness</h2>
+      <div class="row py-3">
+        {% for user_act_status in completed_acts %}
+        <div class="col-md-12 mb-4">
+          <div class="card w-100">
+            <div class="card-body act-body-card">
+              <h5 class="card-title">{{ user_act_status.act_of_kindness.name }}</h5>
+              <p class="card-text">{{ user_act_status.act_of_kindness.description }}</p>
+              <p>Thank you for completing an act of kindness! Would you like to
+                share a post about it, to inspire others to also do the act of kindness?</p>
+              <a href="{% url 'add_post' user_act_status.act_of_kindness.id %}" class="btn btn-outline-primary">Share
+                Your Act</a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <div class="col">
+          <p>You have not completed any acts of kindness yet.</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% if request.user == user %}
+{% comment %} Delete confirmation modal {% endcomment %}
+<dialog id="delete-modal" class="bg-dark text-light">
+  <div class="modal-box p-3">
+    <h3 id="delete-modal-message" class="font-bold mb-3">Are you sure you want
+      to proceed? This action cannot be undone.
+    </h3>
+    <div class="row pt-4 justify-content-lg-end">
+      <div class="col-12 col-lg-3">
+        <button type="button" class="btn btn-outline-light delete-cancel-button w-100">No,
+          cancel.</button>
+      </div>
+      <div class="col-12 col-lg-3">
+        <form id="delete-modal-form" action="#" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger delete-confirm-button w-100 mt-2 mt-lg-0">Yes,
+            proceed.</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</dialog>
+{% endif %}
+{% endblock %}

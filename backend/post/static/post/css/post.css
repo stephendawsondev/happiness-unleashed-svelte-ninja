@@ -1,0 +1,9 @@
+.act-of-kindness-card {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .act-of-kindness-card {
+    max-width: 30%;
+  }
+}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_title %}{{ act.name }} - {% endblock %}
+{% block meta_description %}{{ act.description }}{% endblock %}
+{% block extra_meta %}
+{% if act.image %}
+<meta property="og:image" content="{{ act.image.url }}">
+{% endif %}
+{% endblock %}
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'acts_of_kindness/css/acts_of_kindness.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center logo-font mb-4 text-pink mt-5">{{ act.name }}</h2>
+    <p class="text-center">{{ act.description }}</p>
+
+    {% if act.image %}
+
+        <img src="{{ act.image.url }}" class="img-act-detail img-fluid mx-auto d-block" alt="{{ act.name }}">
+
+
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <form action="{% url 'complete_and_share_act' act.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-primary">{% trans "Mark as Completed" %}</button>
+        </form>
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="text-center mt-4">
+        <a href="{% url 'add_act' %}" class="btn btn-success">{% trans "Add another Act of Kindness" %}</a>
+    </div>
+    {% endif %}
+    {% if request.user.is_superuser %}
+    <div class="text-center mt-4">
+        <a href="{% url 'add_act' %}" class="btn btn-success">{% trans "Add another Act of Kindness" %}</a>
+        <a href="{% url 'edit_act' act.id %}" class="btn btn-warning">{% trans "Edit the Act of Kindness" %}</a>
+        <a href="{% url 'delete_act' act.id %}" class="btn btn-danger">{% trans "Delete the Act of Kindness" %}</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

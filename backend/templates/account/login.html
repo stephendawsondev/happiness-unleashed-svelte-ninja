@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load allauth account %}
+{% block head_title %}
+{% trans "Sign In" %}
+{% endblock head_title %}
+{% block content %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center logo-font mb-4 text-pink mt-5">{% trans "Sign In" %}</h2>
+            <hr class="w-25 mx-auto">
+
+            {% url 'account_login' as login_url %}
+            <form method="post" action="{{ login_url }}" class="signup-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_login" class="--bs-pink1">{% trans "Username" %}</label>
+                    <input type="text" name="login" id="id_login" class="form-control mb-3"
+                        placeholder="{% trans 'Username' %}" required>
+                </div>
+                {% if form.login.errors %}
+                <div class="alert alert-danger mt-1 p-1">
+                    <ul class="list-unstyled m-0">
+                        {% for error in form.login.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="password" class="text-pink">{% trans "Password" %}</label>
+                    <input type="password" name="password" id="password" class="form-control mb-3"
+                        placeholder="{% trans 'Password' %}" required>
+                </div>
+                {% if form.password.errors %}
+                <div class="alert alert-danger mt-1 p-1">
+                    <ul class="list-unstyled m-0">
+                        {% for error in form.password.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                {% endif %}
+                {% comment %} Display non-field (form-wide) errors {% endcomment %}
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger mt-3">
+                    <ul class="list-unstyled m-0">
+                        {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="form-actions text-center">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"
+                        style="width: 80%">{% trans "Sign In" %}</button>
+                </div>
+            </form>
+            <div class="social-signup mt-4">
+                {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+            </div>
+
+            <div class="mb-3">
+                <p class="text-center">
+                    {% blocktrans %}Don't have an account? <a href="{{ signup_url }}">Sign up</a>
+                    first.{% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
