@@ -30,21 +30,20 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG_MODE = os.environ.get('DEBUG_MODE')
+if DEBUG_MODE == "True" or DEBUG_MODE == True:
+    DEBUG = True
+else:
+    DEBUG = False
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = ['127.0.0.1', 'happiness-unleashed-b388dd1f8f63.herokuapp.com',
-                 'happiness-unleashed-2024-4d7b660c65be.herokuapp.com',
-                 '8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
-                 '8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io',
-                 '8000-fl0w97-happinesapp-hsuolreleyz.ws-eu110.gitpod.io',]
+ALLOWED_HOSTS = ['127.0.0.1', 'hu-backend.stephendawson.ie/',
+                 'happiness-unleashed.stephendawson.ie/']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io',
-    'http://8000-zanettiprad-happinessun-dtbrvo01zpv.ws-eu110.gitpod.io',
-    'https://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
-    'http://8000-aslinedvins-happinesapp-pu5ni4gpaax.ws-eu110.gitpod.io',
+    'https://hu-backend.stephendawson.ie/',
+    'https://happiness-unleashed.stephendawson.ie/',
 ]
 
 # Application definition
