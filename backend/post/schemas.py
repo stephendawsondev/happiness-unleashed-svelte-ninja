@@ -9,7 +9,7 @@ class PostSchema(Schema):
     created_at: datetime
     updated_at: datetime
     content: str
-    image_url: str  # Directly name the field as expected in the response
+    image_url: str
 
     @classmethod
     def from_django(cls, obj):
