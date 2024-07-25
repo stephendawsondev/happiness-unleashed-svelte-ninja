@@ -15,21 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path, include
-from happiness_app import views as index_views
-
+from .api import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_views.index, name='index'),
-    path('our-team/', index_views.our_team, name='our_team'),
-    path('about/', index_views.about, name='about'),
+    path('', include('happiness_app.urls')),
     path('accounts/', include('allauth.urls')),
     path('acts_of_kindness/', include('acts_of_kindness.urls')),
     path('profile/', include('profiles.urls')),
     path('posts/', include('post.urls')),
+    path('api/', api.urls),
 ]
 
 handler404 = 'happiness_unleashed.views.handler404'
