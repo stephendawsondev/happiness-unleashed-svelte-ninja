@@ -1,6 +1,6 @@
 from ninja import Router
-from acts_of_kindness.models import ActsOfKindness
-from acts_of_kindness.schemas import ActsOfKindnessSchema
+from .models import ActsOfKindness
+from .schemas import ActsOfKindnessSchema
 from django.core.serializers import serialize
 import json
 
