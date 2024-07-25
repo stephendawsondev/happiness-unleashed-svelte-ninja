@@ -1,4 +1,18 @@
+<script lang="ts">
+    interface Act {
+    name: string;
+    description: string;
+    image: string;
+  }
 
+  let { data } = $props();
+
+
+  let { actsOfKindness }: {actsOfKindness:  Act[]} = data
+
+
+  console.log(actsOfKindness)
+</script>
 <section class="py-4" id="acts-of-kindness-slider">
   <div class="jumbotron jumbotron-fluid">
     <div class="container hero-container py-2 bg-primary text-white rounded">
@@ -15,16 +29,16 @@
     <h3 class="text-left">Choose a Random Act of Kindness!</h3>
     <div class="swiper-container mt-2">
       <div class="swiper-wrapper">
-        <!-- {% for act in random_acts %} -->
+        {#each actsOfKindness as act}
         <div class="swiper-slide">
           <div class="card mb-3" style="max-width: 300px; height: 520px;">
-            <!-- {% if act.image %} -->
-            <!-- <img src="{{ act.image.url }}" class="card-img-top" alt="{{ act.name }}"> -->
-            <!-- {% else %} -->
-            <!-- <img src="{% static 'path/to/default/image.jpg' %}" class="card-img-top" alt="Default Image"> -->
-            <!-- {% endif %} -->
+            {#if act.image}
+            <img src="https://res.cloudinary.com/dyoueyepq/{ act.image }" class="card-img-top" alt="{ act.name }">
+            {:else}
+            <!-- <img src="#" class="card-img-top" alt="Default Image"> -->
+            {/if}
             <div class="card-body">
-              <!-- <h5 class="card-title">{{ act.name }}</h5> -->
+              <h5 class="card-title">{ act.name }</h5>
               <!-- <p class="card-text">{{ act.description|truncatewords:12 }}</p> -->
             </div>
             <div class="d-grid gap-2 px-3 pb-3">
@@ -32,7 +46,7 @@
             </div>
           </div>
         </div>
-        <!-- {% endfor %} -->
+        {/each}
       </div>
     </div>
   </div>
