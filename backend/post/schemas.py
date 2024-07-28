@@ -1,24 +1,13 @@
-from ninja import Schema
+from ninja import ModelSchema
 from .models import Post
-from datetime import datetime
+from profiles.schemas import UserProfileSchema
 
 
-class PostSchema(Schema):
-    act_of_kindness_id: int
-    user_profile_id: int
-    created_at: datetime
-    updated_at: datetime
-    content: str
-    image_url: str
+class PostSchema(ModelSchema):
+    user_profile: UserProfileSchema | None = None
 
-    @classmethod
-    def from_django(cls, obj):
-        """Method to convert Django model instance to Pydantic model instance."""
-        return cls(
-            act_of_kindness_id=obj.act_of_kindness.id,
-            user_profile_id=obj.user_profile.id,
-            created_at=obj.created_at,
-            updated_at=obj.updated_at,
-            content=obj.content,
-            image_url=obj.image.url if obj.image else None
-        )
+    class Meta:
+        model = Post
+
+        fields = ['act_of_kindness', 'user_profile',
+                  'created_at', 'updated_at', 'content', 'image']

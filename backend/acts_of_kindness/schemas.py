@@ -3,7 +3,7 @@ from .models import ActsOfKindness
 
 
 class ActsOfKindnessSchema(ModelSchema):
-
     class Meta:
         model = ActsOfKindness
-        fields = ('name', 'description', 'image', 'approved', 'user_profiles')
+        fields = ('id', 'name', 'description',
+                  'image', 'approved', 'user_profiles')
