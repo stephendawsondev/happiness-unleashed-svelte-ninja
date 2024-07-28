@@ -1,4 +1,4 @@
-export const load = (async ({ fetch, setHeaders }) => {
+export const load = async ({ setHeaders }) => {
 	const res = await fetch('http://127.0.0.1:8000/api/posts');
 	const posts = await res.json();
 
@@ -9,4 +9,4 @@ export const load = (async ({ fetch, setHeaders }) => {
 	return {
 		posts
 	};
-}) satisfies PageLoad;
+};
