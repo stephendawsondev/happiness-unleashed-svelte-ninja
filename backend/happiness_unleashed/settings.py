@@ -38,12 +38,14 @@ else:
 
 SITE_ID = 1
 
-ALLOWED_HOSTS = ['127.0.0.1', 'hu-backend.stephendawson.ie/',
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'hu-backend.stephendawson.ie/',
                  'happiness-unleashed.stephendawson.ie/']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://hu-backend.stephendawson.ie/',
     'https://happiness-unleashed.stephendawson.ie/',
+    'http://localhost:5173',
+    'http://localhost:8000',
 ]
 
 # Application definition
@@ -56,7 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    'allauth.headless',
+    'allauth.usersessions',
     'django.contrib.staticfiles',
     'django_countries',
     'cloudinary_storage',
@@ -87,10 +90,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'happiness_unleashed.urls'
@@ -117,7 +120,23 @@ TEMPLATES = [
     },
 ]
 
+HEADLESS_FRONTEND_URLS = {
+    "account_confirm_email": "/account/verify-email/{key}",
+    "account_reset_password": "/account/password/reset",
+    "account_reset_password_from_key": "/account/password/reset/key/{key}",
+    "account_signup": "/account/signup",
+}
+
+
 WSGI_APPLICATION = 'happiness_unleashed.wsgi.application'
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Database
 if os.path.isfile('env.py'):
@@ -207,3 +226,13 @@ else:
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+CSRF_COOKIE_SECURE = False
+CSRF_USE_SESSIONS = True
+SESSION_COOKIE_DOMAIN = "localhost"
+CSRF_COOKIE_DOMAIN = "localhost"
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SECURE = False
+# HEADLESS_ONLY = True
