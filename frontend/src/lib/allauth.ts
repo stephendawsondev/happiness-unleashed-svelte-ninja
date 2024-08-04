@@ -76,6 +76,7 @@ export async function logout(event = null) {
 export async function signUp(data, event = null) {
 	const csrfToken = await getCsrfToken();
 	const headers = csrfToken ? { 'X-CSRFToken': csrfToken } : {};
+	console.log(`headers in signUp func: ${JSON.stringify(headers)}`);
 	return await request('POST', URLs.SIGNUP, data, headers, event);
 }
 

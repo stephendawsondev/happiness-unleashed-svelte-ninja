@@ -1,14 +1,16 @@
-export async function getCsrfToken() {
-	const server_url = 'http://localhost:8000'; // Replace with your Django backend URL
-	const response = await fetch(server_url + '/csrf-token/', {
-		credentials: 'include'
-	});
+const getCookie = (name: string) => {
+	let cookieValue = null;
+	if (document.cookie && document.cookie !== '') {
+		const cookies = document.cookie.split(';');
+		for (let i = 0; i < cookies.length; i++) {
+			const cookie = cookies[i].trim();
+			if (cookie.substring(0, name.length + 1) === name + '=') {
+				cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+				break;
+			}
+		}
+	}
+	return cookieValue;
+};
 
-	const data = await response.json();
-	const csrfToken = data.csrfToken;
-
-	console.log('CSRF token response:', data);
-	console.log('CSRF token for request:', csrfToken);
-
-	return csrfToken;
-}
+export default getCookie;

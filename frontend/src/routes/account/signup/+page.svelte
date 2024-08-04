@@ -1,7 +1,52 @@
 <script lang="ts">
   import type { ActionData } from './$types';
+  import getCookie  from '$lib/csrfCookie';
+	import { onMount } from 'svelte';
 
   export let form: ActionData;
+  let signupForm: HTMLFormElement;
+  onMount(async () => {
+    signupForm = document?.querySelector('.signup-form') || document.createElement('form');
+  });
+
+  const handleSubmit = async (e: Event) => {
+  e.preventDefault();
+  if (!signupForm) {
+    return;
+  }
+  const formData = new FormData(signupForm);
+  const username = formData.get('username') as string;
+  const email = formData.get('email') as string;
+  const password1 = formData.get('password1') as string;
+  const password2 = formData.get('password2') as string;
+
+  if (password1 !== password2) {
+    form = { error: 'Passwords do not match' };
+    return;
+  }
+
+  console.log(username, email, password1);
+
+  const response = await fetch('http://localhost:8000/_allauth/browser/v1/auth/signup', {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': getCookie('csrftoken') || '',
+    },
+    credentials: 'include',
+    body: JSON.stringify({ username, email, password: password1 })
+  });
+
+  console.log(response);
+
+  if (response.ok) {
+    window.location.href = '/';
+  } else {
+    const data = await response.json();
+    form = data;
+  }
+};
+
+
 </script>
 <div class="container my-4">
     <div class="row justify-content-center">
@@ -9,7 +54,7 @@
             <h2 class="text-center logo-font mb-4 text-pink mt-5">Sign Up</h2>
             <hr class="w-25 mx-auto">
 
-            <form action="?/signup" method="POST" class="signup-form">
+            <form method="POST" class="signup-form" onsubmit={handleSubmit}>
                 <div class="form-group">
                     <label for="username" class="--bs-pink1">Username</label>
                     <input type="username" name="username" id="username" class="form-control"
